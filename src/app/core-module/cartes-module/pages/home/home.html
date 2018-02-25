@@ -15,4 +15,12 @@
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+
+  <ul>
+        <li *ngFor="let idCard of receivedCards">{{ idCard }}</li>
+  </ul> 
+  <button ion-button (click)="onClick()">Ajout</button>
+  <button ion-button (click)="onClick2()">Affiche</button>
+  <button ion-button (click)="onClick3()">Notification</button>
+
 </ion-content>
