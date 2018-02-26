@@ -8,7 +8,7 @@ import { Observer } from './observer';
 export class NotificationsService implements Observable {
 
 	// Fréquence d'envoit des notifications
-	public readonly NOTIFICATIONS_RATE: number = 0.05; 
+	public readonly NOTIFICATIONS_RATE: number = 0.01; 
 	
 	// Titre standard
 	public readonly NOTIFICATIONS_TITLE: string = 'TDAPP';

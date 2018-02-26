@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { AlertController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
 import { CartesModule } from './cartes-module/cartes.module';
@@ -20,8 +21,10 @@ import { NotificationsService } from './notifications-service/notifications.serv
 })
 export class CoreModule {
 
-	constructor(private notificationsService: NotificationsService) {
-
+	constructor(private notificationsService: NotificationsService, private alertCtrl: AlertController) {
+		this.checkPermission();
+		this.listenNotifications();
+		this.checkScheduled();
 	}
 
 	// On vérifie les autorisations et on affiche un message indiquant 
@@ -29,7 +32,7 @@ export class CoreModule {
 	private checkPermission() {
 		this.notificationsService.checkPermission().then( result => {
 			if(!result) {
-				alert('Veuillez autorisez l\'envoie de notifications');
+				this.showAlert();
 			}
 		});
 	}
@@ -58,6 +61,16 @@ export class CoreModule {
 	// On récupère la prochaine carte non débloquée
 	private getNextCard(): number {
 		return 1;
+	}
+
+	// Affichage d'un alerte
+	private showAlert() {
+		let alert = this.alertCtrl.create({
+    			title: 'TDAH-APP',
+      			subTitle: 'Veuillez autorisez l\'envoie de notifications',
+      			buttons: ['OK']
+    		});
+    		alert.present();
 	}
 
 }
