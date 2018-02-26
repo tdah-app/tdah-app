@@ -22,9 +22,9 @@ import { NotificationsService } from './notifications-service/notifications.serv
 export class CoreModule {
 
 	constructor(private notificationsService: NotificationsService, private alertCtrl: AlertController) {
-		this.checkPermission();
-		this.listenNotifications();
-		this.checkScheduled();
+		//this.checkPermission();
+		//this.listenNotifications();
+		//this.checkScheduled();
 	}
 
 	// On vérifie les autorisations et on affiche un message indiquant 
