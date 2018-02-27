@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{myCarte.dim}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <div text-center>
+      <ion-card-header>
+        {{myCarte.nom}}
+      </ion-card-header>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Vrai ou Faux ?
+    </ion-card-header>
+    <ion-card-content>
+      {{myCarte.listeElements[i].texte}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+  <img src= "{{myCarte.listeElements[i].image}}"> <!-- {{myCarte.listeElements[i].image}} -->
+  </ion-card>
+  <div text-center>
+    <ion-card>
+      <button>
+        <button ion-button round name="vrai" (click)="vraiTapped()">Vrai</button>
+        <button ion-button round name="faux" (click)="fauxTapped()">Faux</button>
+      </button>
+    </ion-card>
+  </div>
+</ion-content>
+

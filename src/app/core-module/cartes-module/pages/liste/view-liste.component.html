@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{dimension}}</ion-title>
+  </ion-navbar>
+
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <button ion-carte *ngFor="let carte of CartesDim" (click)="carteTapped($event, carte)">
+      {{carte.nom}}
+    </button>
+  </ion-list>
+</ion-content>
+
+
+
+
+
+

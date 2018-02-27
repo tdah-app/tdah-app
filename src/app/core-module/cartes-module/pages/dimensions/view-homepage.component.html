@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Boîte aux cartes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide ion-dimension *ngFor="let dimension of dimensions" (click)="dimensionTapped($event, dimension.path)">
+      <p>{{dimension.name}}</p>
+      <ion-img width="300" height="300" src="../../../../../assets/imgs/{{dimension.path}}.png"></ion-img>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

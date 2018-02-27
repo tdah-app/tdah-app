@@ -1,17 +1,16 @@
 import { ElementParent } from '../../objects/element-parent';
 
-export class Carte {
+
+export class Methode {
 
   	public nom: string;
   	public listeElements: ElementParent[];
   	public id: number;
-  	public dim: string;
 
-  	constructor(nom: string, id: number, dim: string, listeElements: ElementParent[]) {
+  	constructor(nom: string, listeElements: ElementParent[], id: number) {
     		this.nom = nom;
-    		this.id = id;
-    		this.dim = dim;
     		this.listeElements = listeElements;
+    		this.id = id;
   	}
 
 }
