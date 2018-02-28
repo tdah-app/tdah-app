@@ -11,8 +11,8 @@
 
 <ion-content>
   <ion-list>
-    <button ion-carte *ngFor="let carte of CartesDim" (click)="carteTapped($event, carte)">
-      {{carte.nom}}
+    <button ion-carte *ngFor="let carte of cartesDim" (click)="carteTapped($event, carte)">
+    <p>{{carte.nom}}</p>
     </button>
   </ion-list>
 </ion-content>

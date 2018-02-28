@@ -33,17 +33,23 @@ import { DataService } from './data-service/data.service';
 })
 export class AppModule {
 
-	// Id de la 1er carte reçus lors de la première utilisation
+	// Id de la 1er carte et de la première méthode reçues lors de la première utilisation
 	// de l'application
 	private firstCard: number = 0;
+	private firstMet: number = 0;
 	
 	// On initialise les données si aucune carte n'est présente 
   	// alors c'est la 1er utilisation de l'application
   	// On ajoute donc une première carte
 	constructor(private dataService: DataService) {
-		this.dataService.getData(this.dataService.READ_CARDS).then( receivedCards => {
+		this.dataService.getData(this.dataService.RECEIVED_CARDS).then( receivedCards => {
 			if(!receivedCards) {
 				this.dataService.addData(this.firstCard, this.dataService.RECEIVED_CARDS);
+			}
+		});
+		this.dataService.getData(this.dataService.RECEIVED_METHODS).then( receivedMet => {
+			if(!receivedMet) {
+				this.dataService.addData(this.firstMet, this.dataService.RECEIVED_METHODS);
 			}
 		});
 	}

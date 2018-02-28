@@ -20,7 +20,6 @@ export const CARTES: Carte[] = [
         			bouton: 'vrai faux',
         			texte: 'De manière générale, est-il vrai que nous n\'utilisons que 10% de notre cerveau ?',
         			valeur: true,
-        			reponse: 'En effet, selon Wolfe Fisher et al. Les chercheurs n\'ont pas encore réussi à prouver l\'existence de zones inactives dans le cerveau. À l\'exception des personnes se trouvant dans un état végétatif.',
         			image: '../../../../assets/imgs/cerveau.jpg',
         			typeElem: 'ElementVraiFaux'},
       			<ElementParent>{
@@ -39,7 +38,6 @@ export const CARTES: Carte[] = [
         			bouton: 'retour au menu',
         			texte: 'vrai ou faux ? bonne question',
         			valeur: true,
-        			reponse: 'la reponse était : vrai !!!',
         			image: '',
         			typeElem: 'ElementVraiFaux'}, 
       			<ElementSavaisTuQue>{
@@ -74,7 +72,6 @@ export const CARTES: Carte[] = [
         			bouton: 'vrai faux',
         			texte: 'vrai ou faux ? très bonne question',
         			valeur: false,
-        			reponse: 'la reponse était : faux !',
         			image: '',
         			typeElem: 'ElementVraiFaux'},
       			<ElementParent>{

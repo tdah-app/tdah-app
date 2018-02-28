@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Carte } from './carte';
-import { ViewHomePage } from './view-homepage.component';
-import { ViewImageBasic } from './view-image-basic.component';
-import { ViewBasic } from './view-basic.component';
 
-import { ElementVraiFaux } from './element-vrai-faux';
-import { ElementSavaisTuQue } from './element-savais-tu-que';
-import { ElementImage } from './element-image';
-import { Element } from './element';
-
+import { Carte } from './../../objects/carte';
+import { ElementParent } from './../../../objects/element-parent';
+import { ElementVraiFaux } from './../../../objects/element-vrai-faux';
+import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
+import { ElementImage } from './../../../objects/element-image';
+import { ViewHomePage } from './../dimensions/view-homepage.component';
+import { ViewImageBasic } from './../image-basic/view-image-basic.component';
+import { ViewBasic } from './../basic/view-basic.component';
 
 
 @Component({
@@ -42,7 +41,7 @@ export class ViewVraiFaux implements OnInit {
       this.i = this.i + 1;
 
       //if(this.myCarte.listeElements[this.i] instanceof ElementVraiFaux) {
-        if(this.myCarte.listeElements[this.i].type == 'ElementVraiFaux') {
+        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
            this.navCtrl.push(ViewVraiFaux, {
            resultParam: this.myCarte,
            index: this.i,
@@ -50,7 +49,7 @@ export class ViewVraiFaux implements OnInit {
            });
        }
        //else if(this.myCarte.listeElements[this.i] instanceof ElementSavaisTuQue) {
-         else if(this.myCarte.listeElements[this.i].type == 'ElementSavaisTuQue') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
            this.navCtrl.push(ViewBasic, {
            resultParam: this.myCarte,
            index: this.i,
@@ -58,7 +57,7 @@ export class ViewVraiFaux implements OnInit {
            });
        }
 
-       else if(this.myCarte.listeElements[this.i].type == 'ElementImage') {
+       else if(this.myCarte.listeElements[this.i].typeElem == 'ElementImage') {
            this.navCtrl.push(ViewImageBasic, {
            resultParam: this.myCarte,
            index: this.i
@@ -66,7 +65,7 @@ export class ViewVraiFaux implements OnInit {
        }
 
        //else if(this.myCarte.listeElements[this.i] instanceof Element) {
-         else if(this.myCarte.listeElements[this.i].type == 'Element') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
            this.navCtrl.push(ViewImageBasic, {
            resultParam: this.myCarte,
            index: this.i,
@@ -89,7 +88,7 @@ export class ViewVraiFaux implements OnInit {
       this.i = this.i + 1;
 
       //if(this.myCarte.listeElements[this.i] instanceof ElementVraiFaux) {
-        if(this.myCarte.listeElements[this.i].type == 'ElementVraiFaux') {
+        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
            this.navCtrl.push(ViewVraiFaux, {
            resultParam: this.myCarte,
            index: this.i,
@@ -97,7 +96,7 @@ export class ViewVraiFaux implements OnInit {
            });
        }
        //else if(this.myCarte.listeElements[this.i] instanceof ElementSavaisTuQue) {
-         else if(this.myCarte.listeElements[this.i].type == 'ElementSavaisTuQue') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
            this.navCtrl.push(ViewImageBasic, {
            resultParam: this.myCarte,
            index: this.i,
@@ -106,7 +105,7 @@ export class ViewVraiFaux implements OnInit {
        }
 
        //else if(this.myCarte.listeElements[this.i] instanceof Element) {
-         else if(this.myCarte.listeElements[this.i].type == 'Element') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
            this.navCtrl.push(ViewImageBasic, {
            resultParam: this.myCarte,
            index: this.i,
@@ -128,7 +127,7 @@ export class ViewVraiFaux implements OnInit {
       this.i = this.i + 1;
 
       //if(this.myCarte.listeElements[this.i] instanceof ElementVraiFaux) {
-        if(this.myCarte.listeElements[this.i].type == 'ElementVraiFaux') {
+        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
            this.navCtrl.push(ViewVraiFaux, {
            resultParam: this.myCarte,
            index: this.i,
@@ -136,7 +135,7 @@ export class ViewVraiFaux implements OnInit {
            });
        }
        //else if(this.myCarte.listeElements[this.i] instanceof ElementSavaisTuQue) {
-         else if(this.myCarte.listeElements[this.i].type == 'ElementSavaisTuQue') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
            this.navCtrl.push(ViewImageBasic, {
            resultParam: this.myCarte,
            index: this.i,
@@ -145,7 +144,7 @@ export class ViewVraiFaux implements OnInit {
        }
 
        //else if(this.myCarte.listeElements[this.i] instanceof Element) {
-         else if(this.myCarte.listeElements[this.i].type == 'Element') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
            this.navCtrl.push(ViewImageBasic, {
            resultParam: this.myCarte,
            index: this.i,

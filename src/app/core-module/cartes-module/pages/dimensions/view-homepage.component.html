@@ -9,9 +9,9 @@
 
 <ion-content>
   <ion-slides pager>
-    <ion-slide ion-dimension *ngFor="let dimension of dimensions" (click)="dimensionTapped($event, dimension.path)">
+    <ion-slide ion-dimension *ngFor="let dimension of dimensions" (click)="dimensionTapped($event, dimension.name)">
       <p>{{dimension.name}}</p>
-      <ion-img width="300" height="300" src="../../../../../assets/imgs/{{dimension.path}}.png"></ion-img>
+      <img width="300" height="300" src="../../../../../assets/imgs/{{dimension.path}}.png"/>
     </ion-slide>
   </ion-slides>
 </ion-content>

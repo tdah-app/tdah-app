@@ -3,16 +3,14 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from '../../objects/carte';
 import { CARTES } from '../../data/cartes';
-import { Methode } from '../../../methodes-module/objects/methode';
-import { METHODES } from '../../../methodes-module/data/methodes';
 import { ElementParent } from '../../../objects/element-parent';
 import { ElementVraiFaux } from '../../../objects/element-vrai-faux';
 import { ElementSavaisTuQue } from '../../../objects/element-savais-tu-que';
 import { ElementImage } from '../../../objects/element-image';
-//import { ViewVraiFaux } from 'view-vraifaux.component';
-//import { ViewImageBasic } from './view-image-basic.component';
-//import { ViewBasic } from './view-basic.component';
-//import { ViewListe } from './view-liste.component';
+import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
+import { ViewImageBasic } from './../image-basic/view-image-basic.component';
+import { ViewBasic } from './../basic/view-basic.component';
+import { ViewListe } from './../liste/view-liste.component';
 import { DataService } from '../../../../data-service/data.service';
 
 
@@ -22,14 +20,11 @@ import { DataService } from '../../../../data-service/data.service';
 })
 export class ViewHomePage implements OnInit {
 
-  	cartes: Carte[];
-	dimensions: any[];
-  	methodes: Methode[];
-	test: string = 'test';
+	private cartes: Carte[];
+	private dimensions: any[];
 
   	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService) {
 		this.cartes = new Array(0);
-    		this.methodes = new Array(0);
 		this.dimensions = [
 			{
 				"name": "Attention",
@@ -63,40 +58,20 @@ export class ViewHomePage implements OnInit {
                  			//si l'indice de la carte regardée est contenu dans receivedCards : c'est-à-dire si la carte a déjà été reçue...
                  			if (receivedCards.indexOf(CARTES[i].id) != -1) {
                      				//... alors on l'ajout à la liste des cartes déverrouillées, qui seront affichées dans le slider
-                     				this.Cartes.push(CARTES[i]);
+                     				this.cartes.push(CARTES[i]);
                  			}
              			}
-       			} else { //si aucune carte n'a déjà été reçue
-         			this.dataProvider.addData(0, this.dataProvider.RECEIVED_CARDS);
-         			//on ajoute la première carte de la liste de cartes du fichier cartes.ts
-         			this.Cartes[0] = CARTES[0];
-       			}    
-     	  	});
-    	  	this.Cartes = CARTES;      
-		this.dataProvider.getData(this.dataProvider.RECEIVED_METHODS).then( receivedMethods => {
-          		if(receivedMethods) {
-            		//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
-            		for (let i in METHODES) {
-                		//si l'indice de la carte regardée est contenu dans receivedMethods : c'est-à-dire si la carte a déjà été reçue...
-                		if (receivedMethods.indexOf(METHODES[i].id) != -1) {
-                    			//... alors on l'ajout à la liste des cartes déverrouillées, qui seront affichées dans le slider
-                    			this.Methodes.push(METHODES[i]);
-                		}
-            		}
-      			} else { //si aucune carte n'a déjà été reçue
-        			this.dataProvider.addData(0, this.dataProvider.RECEIVED_METHODS);
-        			//on ajoute la première carte de la liste de cartes du fichier cartes.ts
-        			this.Methodes[0] = METHODES[0];
-      			}
-    		});*/
+       			} 
+     	  	});*/
+    	  	this.cartes = CARTES;      
   	}
 
 	//une dimension a été sélectionnée
- 	dimensionTapped(event, dimension: string) {
-      		/*this.navCtrl.push(ViewListe, {
-        		Dimension: dimension,
-        		Cartes: this.Cartes
-      		});*/
+ 	dimensionTapped(event, dimensionName: string) {
+      		this.navCtrl.push(ViewListe, {
+        		dimension: dimensionName,
+        		cartes: this.cartes
+      		});
   	}
 
 }

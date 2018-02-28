@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ViewVraiFaux } from './../cartes/view-vraifaux.component';
-import { ViewImageBasic } from './../cartes/view-image-basic.component';
-import { ViewBasic } from './../cartes/view-basic.component';
 
-import { ElementVraiFaux } from './../cartes/element-vrai-faux';
-import { ElementSavaisTuQue } from './../cartes/element-savais-tu-que';
-import { ElementImage } from './../cartes/element-image';
-import { Element } from './../cartes/element';
-import { Methode } from './../methodes/methode';
-import { METHODES } from './../methodes/methodes';
-
-import { DataService } from '../../dataSol/src/app/data.service';
+import { Methode } from './../../objects/methode';
+import { METHODES } from './../../data/methodes';
+import { ElementParent } from './../../../objects/element-parent';
+import { ElementVraiFaux } from './../../../objects/element-vrai-faux';
+import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
+import { ElementImage } from './../../../objects/element-image';
+//import { ViewVraiFaux } from './../cartes/view-vraifaux.component';
+//import { ViewImageBasic } from './../cartes/view-image-basic.component';
+//import { ViewBasic } from './../cartes/view-basic.component';
+import { DataService } from '../../../../data-service/data.service';
 
 
 @Component({
@@ -28,13 +27,13 @@ export class ViewMethodes implements OnInit {
 
 
   ngOnInit() {
-    this.Methodes = METHODES;;
+    this.Methodes = METHODES;
   }  
 
 //une méthode a été cliquée/sélectionnée
   methodeTapped(event, methode) {
     
-        if(methode.listeElements[0].type == 'ElementVraiFaux') {
+        /*if(methode.listeElements[0].type == 'ElementVraiFaux') {
            this.navCtrl.push(ViewVraiFaux, {
            resultParam: methode,
            index: 0
@@ -59,7 +58,7 @@ export class ViewMethodes implements OnInit {
            resultParam: methode,
            index: 0
            });
-       }
+       }*/
   }
 
 }
