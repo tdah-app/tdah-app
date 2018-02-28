@@ -12,7 +12,7 @@
 <ion-content>
   <ion-list>
     <button ion-item *ngFor="let carte of cartesDim" (click)="carteTapped($event, carte)">
-      <ion-icon name="flask" item-start></ion-icon>
+      <ion-icon [name]="carte.icon" item-start></ion-icon>
       {{carte.nom}}
     </button>
   </ion-list>

@@ -8,6 +8,7 @@ export const CARTES: Carte[] = [
 
   	{
     		nom: 'Carte 1',
+		icon: 'md-arrow-forward',
     		id: 0,
     		dim: "Attention",
     		listeElements: [
@@ -31,6 +32,7 @@ export const CARTES: Carte[] = [
 
   	{
     		nom: 'Carte 2',
+		icon: 'md-arrow-forward',
     		id: 1,
     		dim: "Attention",
     		listeElements: [ 
@@ -56,7 +58,8 @@ export const CARTES: Carte[] = [
   	},
 
   	{
-    		nom: 'Carte 3', 
+    		nom: 'Carte 3',
+		icon: 'md-arrow-forward',
     		id: 2,
     		dim: "Mémoire",
     		listeElements: [
@@ -88,6 +91,7 @@ export const CARTES: Carte[] = [
   	{
     		nom:'Plus organisé qu\'un poisson rouge ?',
     		id: 3,
+		icon: 'md-arrow-forward',
     		dim: "Mémoire",
     		listeElements: [
       			<ElementImage>{
