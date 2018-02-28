@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
-import { CARTES } from './../../data/cartes';
-import { ElementParent } from './../../../objects/element-parent';
-import { ElementVraiFaux } from './../../../objects/element-vrai-faux';
-import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
-import { ElementImage } from './../../../objects/element-image';
 import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
 import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 import { ViewBasic } from './../basic/view-basic.component';

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
-import { ElementParent } from './../../../objects/element-parent';
-import { ElementVraiFaux } from './../../../objects/element-vrai-faux';
 import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
 import { ElementImage } from './../../../objects/element-image';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
