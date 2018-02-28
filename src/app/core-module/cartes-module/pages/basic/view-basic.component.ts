@@ -63,7 +63,7 @@ export class ViewBasic implements OnInit {
            });
        }
 
-         else if(this.myCarte.listeElements[this.i].typeElem == 'Element') {
+         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
            this.navCtrl.push(ViewBasic, {
            resultParam: this.myCarte,
            index: this.i
