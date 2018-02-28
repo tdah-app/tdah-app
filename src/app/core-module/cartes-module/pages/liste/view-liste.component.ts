@@ -19,53 +19,62 @@ import { DataService } from '../../../../data-service/data.service';
 })
 export class ViewListe implements OnInit {
 
-  cartes: Carte[];
-  cartesDim: Carte[];
-  dimension: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService) {
-    //on récupère les paramètres transmis par la view précédente : ViewHomePage
-    this.dimension = navParams.get("dimension");
-    this.cartes = navParams.get("cartes");
-    this.cartesDim = new Array(0);
-  }
+  	cartes: Carte[];
+  	cartesDim: Carte[];
+ 	dimension: string;
+
+  	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService) {
+    		//on récupère les paramètres transmis par la view précédente : ViewHomePage
+    		this.dimension = navParams.get("dimension");
+    		this.cartes = navParams.get("cartes");
+		this.cartesDim = new Array(0);
+  	}
 
 
-  ngOnInit() {
-    for (let i in this.cartes) {
-        if (this.cartes[i].dim == this.dimension) {
-            this.cartesDim.push(this.cartes[i]);
-        }
-    }
-  }  
+  	ngOnInit() {
+    		for (let i in this.cartes) {
+        		if (this.cartes[i].dim == this.dimension) {
+            			this.cartesDim.push(this.cartes[i]);
+        		}
+    		}
+		// On regarde les cartes déjà lues
+		this.dataProvider.getData(this.dataProvider.READ_CARDS).then( readCards => {
+			if(readCards) {
+				for(let i in readCards) {
+					this.cartes[i].iconEtat = 'eye';
+					this.cartes[i].iconEtatColor = 'secondary';
+				}
+			}
+		});
+  	}  
 
-//une carte a été cliquée/sélectionnée
-  carteTapped(event, carte) {
-
-	  if(carte.listeElements[0].typeElem == 'ElementVraiFaux') {
-          	this.navCtrl.push(ViewVraiFaux, {
-           		resultParam: carte,
-           		index: 0
-           	});
-       	  }
-          else if(carte.listeElements[0].typeElem == 'ElementSavaisTuQue') {
-          	this.navCtrl.push(ViewBasic, {
-           		resultParam: carte,
-           		index: 0
-           	});
-          }
-          else if(carte.listeElements[0].typeElem == 'ElementImage') {
-           	this.navCtrl.push(ViewImageBasic, {
-           		resultParam: carte,
-           		index: 0
-           	});
-       	  }
-       	  else {    
-          	this.navCtrl.push(ViewBasic, {
-           		resultParam: carte,
-           		index: 0
-           	});
-       	  }
-  }
+	//une carte a été cliquée/sélectionnée
+  	carteTapped(event, carte) {
+	  	if(carte.listeElements[0].typeElem == 'ElementVraiFaux') {
+          		this.navCtrl.push(ViewVraiFaux, {
+           			resultParam: carte,
+           			index: 0
+           		});
+       	  	}
+          	else if(carte.listeElements[0].typeElem == 'ElementSavaisTuQue') {
+          		this.navCtrl.push(ViewBasic, {
+           			resultParam: carte,
+           			index: 0
+           		});
+          	}
+          	else if(carte.listeElements[0].typeElem == 'ElementImage') {
+           		this.navCtrl.push(ViewImageBasic, {
+           			resultParam: carte,
+           			index: 0
+           		});
+       	  	}
+       	  	else {    
+          		this.navCtrl.push(ViewBasic, {
+           			resultParam: carte,
+           			index: 0
+           		});
+       	  	}
+  	}
 
 }

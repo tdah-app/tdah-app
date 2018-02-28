@@ -14,6 +14,7 @@
     <button ion-item *ngFor="let carte of cartesDim" (click)="carteTapped($event, carte)">
       <ion-icon [name]="carte.icon" item-start></ion-icon>
       {{carte.nom}}
+      <ion-icon [name]="carte.iconEtat" [color]="carte.iconEtatColor" item-end></ion-icon>
     </button>
   </ion-list>
 </ion-content>

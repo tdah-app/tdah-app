@@ -4,13 +4,17 @@ export class Carte {
 
   	public nom: string;
 	public icon: string;
+	public iconEtat: string;
+	public iconEtatColor: string;
   	public listeElements: ElementParent[];
   	public id: number;
   	public dim: string;
 
-  	constructor(nom: string, icon: string, id: number, dim: string, listeElements: ElementParent[]) {
+  	constructor(nom: string, icon: string, iconEtat: string, iconEtatColor: string, id: number, dim: string, listeElements: ElementParent[]) {
     		this.nom = nom;
 		this.icon = icon;
+		this.iconEtat = iconEtat;
+		this.iconEtatColor = iconEtatColor;
     		this.id = id;
     		this.dim = dim;
     		this.listeElements = listeElements;
