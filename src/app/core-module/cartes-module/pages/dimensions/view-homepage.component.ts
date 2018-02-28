@@ -12,13 +12,15 @@ import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 import { ViewBasic } from './../basic/view-basic.component';
 import { ViewListe } from './../liste/view-liste.component';
 import { DataService } from '../../../../data-service/data.service';
-
+import { Observer } from '../../../notifications-service/observer';
+import { Observable } from '../../../notifications-service/observable';
+import { NotificationsService } from '../../../notifications-service/notifications.service';
 
 @Component({
   selector: 'view-homepage',
   templateUrl: 'view-homepage.component.html',
 })
-export class ViewHomePage implements OnInit {
+export class ViewHomePage implements OnInit, Observer {
 
 	private cartes: Carte[];
 	private dimensions: any[];
@@ -73,5 +75,9 @@ export class ViewHomePage implements OnInit {
         		cartes: this.cartes
       		});
   	}
+
+	update(idCard: number) {
+		alert('Notific --> ' + idCard);
+	}
 
 }
