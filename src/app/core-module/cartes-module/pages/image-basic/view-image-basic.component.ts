@@ -9,7 +9,7 @@ import { ElementImage } from './../../../objects/element-image';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
 import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
 import { ViewBasic } from './../basic/view-basic.component';
-
+import { DataService } from './../../../../data-service/data.service';
 
 @Component({
   selector: 'view-image-basic',
@@ -25,7 +25,7 @@ export class ViewImageBasic implements OnInit {
   title: string;
   image: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public dataProvider: DataService) {
     this.myCarte = navParams.get("resultParam");
     this.i = navParams.get("index");
     this.correct = navParams.get("correct"); 
@@ -102,6 +102,8 @@ export class ViewImageBasic implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
+      // On ajoute la carte courante à la liste des cartes lues
+      this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);
       //on retourne à la page d'accueil, et on reset l'historique de navigation
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();

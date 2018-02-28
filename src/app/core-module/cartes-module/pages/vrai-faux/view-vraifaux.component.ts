@@ -9,7 +9,7 @@ import { ElementImage } from './../../../objects/element-image';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
 import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 import { ViewBasic } from './../basic/view-basic.component';
-
+import { DataService } from './../../../../data-service/data.service';
 
 @Component({
   selector: 'view-vraifaux',
@@ -22,7 +22,7 @@ export class ViewVraiFaux implements OnInit {
   nomBouton: string;
   correct: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataService) {
     this.myCarte = navParams.get("resultParam");
     this.i = navParams.get("index");
   }
@@ -75,9 +75,11 @@ export class ViewVraiFaux implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
+      // On ajoute la carte courante à la liste des cartes lues
+      this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();
-    }//this.navCtrl.push(ViewHomePage); //on retourne à la page d'accueil
+    }
   }
 
 
@@ -115,9 +117,11 @@ export class ViewVraiFaux implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
+      // On ajoute la carte courante à la liste des cartes lues
+      this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();
-    }//this.navCtrl.push(ViewHomePage);
+    }
   }
 
   fauxTapped() {
@@ -154,6 +158,8 @@ export class ViewVraiFaux implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
+      // On ajoute la carte courante à la liste des cartes lues
+      this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();
     }
