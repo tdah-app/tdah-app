@@ -7,6 +7,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { CartesModule } from './cartes-module/cartes.module';
 import { MethodesModule } from './methodes-module/methodes.module';
 import { NotificationsService } from './notifications-service/notifications.service';
+import { ToastsService } from './toasts-service/toasts.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { NotificationsService } from './notifications-service/notifications.serv
   ],
   providers: [
 	  LocalNotifications,
-	  NotificationsService
+	  NotificationsService,
+	  ToastsService
   ]
 })
 export class CoreModule {

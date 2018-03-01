@@ -36,10 +36,14 @@ export class ViewListe implements OnInit {
 		// On regarde les cartes déjà lues
 		this.dataProvider.getData(this.dataProvider.READ_CARDS).then( readCards => {
 			if(readCards) {
-				for(let i in readCards) {
+				readCards.forEach((idCard) => {
+					let i = 0;
+					while(this.cartes[i].id != idCard) {
+						i++;
+					}
 					this.cartes[i].iconEtat = 'eye';
 					this.cartes[i].iconEtatColor = 'secondary';
-				}
+				});
 			}
 		});
   	}  
