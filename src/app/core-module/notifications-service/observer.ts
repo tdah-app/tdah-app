@@ -3,6 +3,6 @@
 // traitements qui seront réaliser lorsque l'objet observé change d'état
 export interface Observer {
 
-	update(idCard: number);
+	update(evtType: string, idCard: number);
 
 }

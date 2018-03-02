@@ -12,6 +12,6 @@ export interface Observable {
 	removeObserver(o : Observer);
 
 	// Méthode pour notifier un changement d'état aux objets observateurs
-	notifyObservers(idCard: number);
+	notifyObservers(evtType: string, idCard: number);
 
 }

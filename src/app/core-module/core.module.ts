@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 import { AlertController } from 'ionic-angular';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
+import { CARTES } from './cartes-module/data/cartes';
 import { CartesModule } from './cartes-module/cartes.module';
 import { MethodesModule } from './methodes-module/methodes.module';
 import { NotificationsService } from './notifications-service/notifications.service';
 import { ToastsService } from './toasts-service/toasts.service';
+import { DataService } from './../data-service/data.service';
 
 @NgModule({
   imports: [
@@ -23,7 +25,7 @@ import { ToastsService } from './toasts-service/toasts.service';
 })
 export class CoreModule {
 
-	constructor(private notificationsService: NotificationsService, private alertCtrl: AlertController) {
+	constructor(private notificationsService: NotificationsService, private alertCtrl: AlertController, private dataService: DataService) {
 		//this.checkPermission();
 		//this.listenNotifications();
 		//this.checkScheduled();
@@ -52,17 +54,21 @@ export class CoreModule {
 	private checkScheduled() {
 		this.notificationsService.isNotified().then ( val => {
 			if(val.length == 0) {
-				this.notificationsService.sendNotification(this.getNextCard(),
-					this.notificationsService.NOTIFICATIONS_TITLE, 
-					this.notificationsService.NOTIFICATIONS_MESSAGE, 
-					this.notificationsService.NOTIFICATIONS_RATE);		
+				this.dataService.getData(this.dataService.RECEIVED_CARDS).then( receivedCards => {
+					if(receivedCards) {
+						let i = 0;
+						while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
+							i++;
+						}
+						if(i < CARTES.length) {
+							this.notificationsService.sendNotification(CARTES[i].id,
+								this.notificationsService.NOTIFICATIONS_TITLE, 
+								this.notificationsService.NOTIFICATIONS_MESSAGE, 
+								this.notificationsService.NOTIFICATIONS_RATE);												     }
+					}
+				});
 			} 
 		});
-	}
-
-	// On récupère la prochaine carte non débloquée
-	private getNextCard(): number {
-		return 1;
 	}
 
 	// Affichage d'un alerte

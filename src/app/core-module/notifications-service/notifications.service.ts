@@ -43,7 +43,10 @@ export class NotificationsService implements Observable {
 	// Lorsque cette évenement se déclenche les objets qui observent sont notifés
 	listenNotifications() {
 		this.localNotifications.on("click", function(notification, state) {
-			NotificationsService.instance.notifyObservers(notification.id);
+			NotificationsService.instance.notifyObservers('click', notification.id);
+		});
+		this.localNotifications.on("trigger", function(notification, state) {
+			NotificationsService.instance.notifyObservers('trigger', notification.id);
 		});
 	}
 
@@ -70,9 +73,9 @@ export class NotificationsService implements Observable {
 	}
 
 	// Méthode de notification des objets observateurs
-	notifyObservers(idCard: number) {
+	notifyObservers(evtType: string, idCard: number) {
 		for(let observer of this.observers) {
-			observer.update(idCard);
+			observer.update(evtType, idCard);
 		}
 	}
 

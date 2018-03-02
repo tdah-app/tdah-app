@@ -4,6 +4,9 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Carte } from '../../objects/carte';
 import { CARTES } from '../../data/cartes';
 import { ViewListe } from './../liste/view-liste.component';
+import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
+import { ViewImageBasic } from './../image-basic/view-image-basic.component';
+import { ViewBasic } from './../basic/view-basic.component';
 import { DataService } from '../../../../data-service/data.service';
 import { Observer } from '../../../notifications-service/observer';
 
@@ -67,8 +70,43 @@ export class ViewHomePage implements OnInit, Observer {
       		});
   	}
 
-	update(idCard: number) {
-		alert('Notific --> ' + idCard);
+	// On avance vers la 1er carte si c'est un événement de type click
+	// on ajoute la carte notifié si c'est un trigger
+	update(evtType: string, idCard: number) {
+		if(evtType === 'click') {
+			let i = 0;
+			while(CARTES[i].id != idCard) {
+				i++;
+			}
+			switch(CARTES[i].listeElements[0].typeElem) {
+				case 'ElemenVraiFaux':
+					this.navCtrl.push(ViewVraiFaux, {
+						resultParam: CARTES[i],
+						index: 0
+					});
+					break;
+				case 'ElementSavaisTuQue':
+					this.navCtrl.push(ViewBasic, {
+						resultParam: CARTES[i],
+						index: 0
+					});
+					break;
+				case 'ElementImage':
+					this.navCtrl.push(ViewImageBasic, {
+						resultParam: CARTES[i],
+						index: 0
+					});
+					break;
+				default:
+					this.navCtrl.push(ViewBasic, {
+						resultParam: CARTES[i],
+						index: 0
+					});
+					break;
+			}
+		} else if(evtType === 'trigger') {
+			this.dataProvider.addData(idCard, this.dataProvider.READ_CARDS);
+		}
 	}
 
 }

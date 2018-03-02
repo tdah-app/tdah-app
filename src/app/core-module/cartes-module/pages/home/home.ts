@@ -43,7 +43,7 @@ export class HomePage implements Observer{
 		});
 	}
 
-	update(idCard: number) {
+	update(evtType: string, idCard: number) {
 		alert('Notific --> ' + idCard);
 	}
 
