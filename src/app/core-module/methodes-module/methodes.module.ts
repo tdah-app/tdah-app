@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { IonicPageModule } from 'ionic-angular';
 
-import { ListPage } from './pages/list/list';
 import { ViewMethodes } from './pages/methode/view-methodes.component';
 
 @NgModule({
@@ -12,11 +11,9 @@ import { ViewMethodes } from './pages/methode/view-methodes.component';
 	  IonicPageModule.forChild(ViewMethodes)
   ],
   declarations: [
-	  ListPage,
 	  ViewMethodes
   ],
   entryComponents: [
-	  ListPage,
 	  ViewMethodes
   ],	
 })

@@ -4,8 +4,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from './core-module/cartes-module/pages/home/home';
-import { ListPage } from './core-module/methodes-module/pages/list/list';
 import { ViewHomePage } from './core-module/cartes-module/pages/dimensions/view-homepage.component';
 import { ViewMethodes } from './core-module/methodes-module/pages/methode/view-methodes.component';
 
@@ -25,9 +23,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Boîte aux cartes', component: ViewHomePage, icon: 'photos' },
-      { title: 'Méthodes', component: ViewMethodes, icon: 'trophy' },
-      { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'List', component: ListPage, icon: 'trophy' }
+      { title: 'Méthodes', component: ViewMethodes, icon: 'trophy' }
     ];
 
   }

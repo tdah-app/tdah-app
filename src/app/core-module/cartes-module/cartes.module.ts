@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { IonicPageModule } from 'ionic-angular';
 
-import { HomePage } from './pages/home/home';
 import { ViewHomePage } from './pages/dimensions/view-homepage.component';
 import { ViewListe } from './pages/liste/view-liste.component';
 import { ViewBasic } from './pages/basic/view-basic.component';
@@ -20,16 +19,14 @@ import { ViewVraiFaux } from './pages/vrai-faux/view-vraifaux.component';
 	  ViewListe,
 	  ViewBasic,
 	  ViewImageBasic,
-	  ViewVraiFaux,
-	  HomePage
+	  ViewVraiFaux
   ],
   entryComponents: [
 	  ViewHomePage,
 	  ViewListe,
 	  ViewBasic,
 	  ViewImageBasic,
-	  ViewVraiFaux,
-	  HomePage
+	  ViewVraiFaux
   ],	
 })
 export class CartesModule {}

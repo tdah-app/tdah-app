@@ -47,7 +47,7 @@ export class ViewMethodes implements OnInit {
 //une méthode a été cliquée/sélectionnée
   methodeTapped(event, methode) {
 	  if(methode.iconEtat === 'lock') {
-		  this.toastsService.sendToast('T\'as pas la méthode batard.');
+		  this.toastsService.sendToast('Méthode non débloquée.');
 	  } else {
 
 	  }

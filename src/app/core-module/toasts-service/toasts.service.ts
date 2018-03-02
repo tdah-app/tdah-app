@@ -22,7 +22,6 @@ export class ToastsService {
 	dismissHandler() {
 		// Ajouter du code ici pour traitement 
 		// lors du clique pour dismiss le toast
-		alert('CECI EST UN PUTAIN DE TEST');
 	}
 
 }
