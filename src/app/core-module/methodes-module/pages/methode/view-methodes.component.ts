@@ -7,6 +7,7 @@ import { METHODES } from './../../data/methodes';
 //import { ViewImageBasic } from './../cartes/view-image-basic.component';
 //import { ViewBasic } from './../cartes/view-basic.component';
 import { DataService } from '../../../../data-service/data.service';
+import { ToastsService } from '../../../toasts-service/toasts.service';
 
 
 @Component({
@@ -17,32 +18,39 @@ export class ViewMethodes implements OnInit {
 
   methodes: Methode[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService, private toastsService: ToastsService) {
     
   }
 
 
   
     ngOnInit() {
-          	/*this.dataProvider.getData(this.dataProvider.RECEIVED_METHODS).then( receivedMet => {
-          		if(receivedMet) {
-             			//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
-             			for (let i in METHODES) {
-                 			//si l'indice de la carte regardée est contenu dans receivedCards : c'est-à-dire si la carte a déjà été reçue...
-                 			if (receivedMet.indexOf(METHODES[i].id) != -1) {
-                     				//... alors on l'ajout à la liste des cartes déverrouillées, qui seront affichées dans le slider
-                     				this.methodes.push(METHODES[i]);
-                 			}
-             			}
-       			} 
-     	  	});*/
-    	  	this.methodes = METHODES;      
+	    this.methodes = METHODES;      
+	    this.dataProvider.getData(this.dataProvider.RECEIVED_METHODS).then( receivedMet => {
+		    if(receivedMet) {
+			    receivedMet.forEach((idMet) => {
+				    let i = 0;
+				    while(this.methodes[i].id != idMet) {
+					    i++;
+				    }
+				    this.methodes[i].iconEtat = '';
+
+			    });
+			
+		    }
+
+	    });
+
   	}
     
 
 //une méthode a été cliquée/sélectionnée
   methodeTapped(event, methode) {
-    
+	  if(methode.iconEtat === 'lock') {
+		  this.toastsService.sendToast('T\'as pas la méthode batard.');
+	  } else {
+
+	  }
         /*if(methode.listeElements[0].type == 'ElementVraiFaux') {
            this.navCtrl.push(ViewVraiFaux, {
            resultParam: methode,

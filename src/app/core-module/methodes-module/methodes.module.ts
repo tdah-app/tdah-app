@@ -4,17 +4,20 @@ import { CommonModule } from '@angular/common';
 import { IonicPageModule } from 'ionic-angular';
 
 import { ListPage } from './pages/list/list';
+import { ViewMethodes } from './pages/methode/view-methodes.component';
 
 @NgModule({
   imports: [
 	  CommonModule,
-	  IonicPageModule.forChild(ListPage)
+	  IonicPageModule.forChild(ViewMethodes)
   ],
   declarations: [
-	  ListPage
+	  ListPage,
+	  ViewMethodes
   ],
   entryComponents: [
-	  ListPage
+	  ListPage,
+	  ViewMethodes
   ],	
 })
 export class MethodesModule {}

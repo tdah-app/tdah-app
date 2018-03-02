@@ -82,6 +82,7 @@ export class ViewBasic implements OnInit {
 	// Regarde si on débloque une nouvelle méthode et ajoute si oui
 	private checkCarMet() {
 		this.dataProvider.getData(this.dataProvider.READ_CARDS).then ( readCards => {
+			alert('test');
 			if(readCards) {
 				if(readCards.indexOf(this.myCarte.id) == -1) {
 					this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);	
@@ -90,8 +91,10 @@ export class ViewBasic implements OnInit {
 					}
 				}
 			} else {
+				alert('test1');
 				this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);
 				if(Methode.DEBLOCK_MET == 1) {
+						alert('test2');
 						this.addReceivedMethod();
 				}
 			}
@@ -100,13 +103,17 @@ export class ViewBasic implements OnInit {
 	
 	// Opération pour ajouter une méthode
 	private addReceivedMethod() {
+		alert('test3');
 		this.dataProvider.getData(this.dataProvider.RECEIVED_METHODS).then( receivedMethods => {
+			alert('test4');
 			if(receivedMethods) {
+				alert('test5');
 				let i = 0;
 				while(i < METHODES.length && receivedMethods.indexOf(METHODES[i].id) != -1) {
 					i++;
 				}
 				if(i < METHODES.length) {
+					alert('test6');
 					this.dataProvider.addData(METHODES[i].id, this.dataProvider.RECEIVED_METHODS);
 					this.toastService.sendToast(this.toastService.MESSAGE);
 						

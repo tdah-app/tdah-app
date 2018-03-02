@@ -11,8 +11,10 @@
 
 <ion-content>
   <ion-list>
-    <button ion-methode *ngFor="let methode of Methodes" (click)="methodeTapped($event, methode)">
+    <button ion-item *ngFor="let methode of methodes" (click)="methodeTapped($event, methode)">
+      <ion-icon [name]="methode.icon" item-start></ion-icon>
       {{methode.nom}}
+      <ion-icon [name]="methode.iconEtat" item-end></ion-icon>
     </button>
   </ion-list>
 </ion-content>

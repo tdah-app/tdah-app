@@ -47,11 +47,11 @@ export class AppModule {
 				this.dataService.addData(this.firstCard, this.dataService.RECEIVED_CARDS);
 			}
 		});
-		/*this.dataService.getData(this.dataService.RECEIVED_METHODS).then( receivedMet => {
+		this.dataService.getData(this.dataService.RECEIVED_METHODS).then( receivedMet => {
 			if(!receivedMet) {
 				this.dataService.addData(this.firstMet, this.dataService.RECEIVED_METHODS);
 			}
-		});*/
+		});
 	}
 
 }
