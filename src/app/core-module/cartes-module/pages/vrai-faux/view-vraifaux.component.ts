@@ -2,12 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
-import { Methode } from './../../../methodes-module/objects/methode';
-import { METHODES } from './../../../methodes-module/data/methodes';
 import { ElementVraiFaux } from './../../../objects/element-vrai-faux';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
 import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 import { ViewBasic } from './../basic/view-basic.component';
+import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
 
@@ -75,7 +74,9 @@ export class ViewVraiFaux implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
-      this.checkCarMet();
+      // Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
+      // Regarde si on débloque une nouvelle méthode et ajoute si oui
+      Utils.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();
     }
@@ -116,7 +117,9 @@ export class ViewVraiFaux implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
-      this.checkCarMet();
+      // Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
+      // Regarde si on débloque une nouvelle méthode et ajoute si oui
+      Utils.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();
     }
@@ -156,49 +159,12 @@ export class ViewVraiFaux implements OnInit {
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
-      this.checkCarMet();
+      // Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
+      // Regarde si on débloque une nouvelle méthode et ajoute si oui
+      Utils.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
       this.navCtrl.setRoot(ViewHomePage);
       this.navCtrl.popToRoot();
     }
   }
-
-
-	// Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
-	// Regarde si on débloque une nouvelle méthode et ajoute si oui
-	private checkCarMet() {
-		this.dataProvider.getData(this.dataProvider.READ_CARDS).then ( readCards => {
-			if(readCards) {
-				if(readCards.indexOf(this.myCarte.id) == -1) {
-					this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);	
-					if((readCards.length + 1) % Methode.DEBLOCK_MET == 0) {
-						this.addReceivedMethod();
-					}
-				}
-			} else {
-				this.dataProvider.addData(this.myCarte.id, this.dataProvider.READ_CARDS);
-				if(Methode.DEBLOCK_MET == 1) {
-						this.addReceivedMethod();
-				}
-			}
-      	    	});
-	}
-	
-	// Opération pour ajouter une méthode
-	private addReceivedMethod() {
-		this.dataProvider.getData(this.dataProvider.RECEIVED_METHODS).then( receivedMethods => {
-			if(receivedMethods) {
-				let i = 0;
-				while(i < METHODES.length && receivedMethods.indexOf(METHODES[i].id) != -1) {
-					i++;
-				}
-				if(i < METHODES.length) {
-					this.dataProvider.addData(METHODES[i].id, this.dataProvider.RECEIVED_METHODS);
-					this.toastService.sendToast(this.toastService.MESSAGE);
-						
-				}
-			}
-		});
-	}
-
 
 }
