@@ -9,6 +9,7 @@ import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 import { ViewBasic } from './../basic/view-basic.component';
 import { DataService } from '../../../../data-service/data.service';
 import { Observer } from '../../../notifications-service/observer';
+import { NotificationsService } from './../../../notifications-service/notifications.service';
 
 @Component({
   selector: 'view-homepage',
@@ -19,7 +20,7 @@ export class ViewHomePage implements OnInit, Observer {
 	private cartes: Carte[];
 	private dimensions: any[];
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService, private notificationsService: NotificationsService) {
 		this.cartes = new Array(0);
 		this.dimensions = [
 			{
@@ -71,7 +72,7 @@ export class ViewHomePage implements OnInit, Observer {
   	}
 
 	// On avance vers la 1er carte si c'est un événement de type click
-	// on ajoute la carte notifié si c'est un trigger
+	// on ajoute la carte notifié si c'est un trigger et on programme une novelle notification
 	update(evtType: string, idCard: number) {
 		if(evtType === 'click') {
 			let i = 0;
@@ -106,6 +107,23 @@ export class ViewHomePage implements OnInit, Observer {
 			}
 		} else if(evtType === 'trigger') {
 			this.dataProvider.addData(idCard, this.dataProvider.READ_CARDS);
+			this.notificationsService.isNotified().then ( val => {
+				if(val.length == 0) {
+					this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
+						if(receivedCards) {
+							let i = 0;
+							while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
+								i++;
+							}
+							if(i < CARTES.length) {
+								this.notificationsService.sendNotification(CARTES[i].id,
+									this.notificationsService.NOTIFICATIONS_TITLE, 
+									this.notificationsService.NOTIFICATIONS_MESSAGE, 
+									this.notificationsService.NOTIFICATIONS_RATE);								                         }
+						}
+					});
+				} 
+			});
 		}
 	}
 
