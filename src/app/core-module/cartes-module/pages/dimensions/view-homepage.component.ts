@@ -4,9 +4,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Carte } from '../../objects/carte';
 import { CARTES } from '../../data/cartes';
 import { ViewListe } from './../liste/view-liste.component';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewImageBasic } from './../image-basic/view-image-basic.component';
-import { ViewBasic } from './../basic/view-basic.component';
+import { Utils } from './../../utils/utils';
 import { DataService } from '../../../../data-service/data.service';
 import { Observer } from '../../../notifications-service/observer';
 import { NotificationsService } from './../../../notifications-service/notifications.service';
@@ -79,32 +77,10 @@ export class ViewHomePage implements OnInit, Observer {
 			while(CARTES[i].id != idCard) {
 				i++;
 			}
-			switch(CARTES[i].listeElements[0].typeElem) {
-				case 'ElemenVraiFaux':
-					this.navCtrl.push(ViewVraiFaux, {
-						resultParam: CARTES[i],
-						index: 0
-					});
-					break;
-				case 'ElementSavaisTuQue':
-					this.navCtrl.push(ViewBasic, {
-						resultParam: CARTES[i],
-						index: 0
-					});
-					break;
-				case 'ElementImage':
-					this.navCtrl.push(ViewImageBasic, {
-						resultParam: CARTES[i],
-						index: 0
-					});
-					break;
-				default:
-					this.navCtrl.push(ViewBasic, {
-						resultParam: CARTES[i],
-						index: 0
-					});
-					break;
-			}
+			this.navCtrl.push(Utils.getNextPage(CARTES[i], 0) , {
+				resultParam: CARTES[i],
+				index: 0,
+			});   
 		} else if(evtType === 'trigger') {
 			this.dataProvider.addData(idCard, this.dataProvider.READ_CARDS);
 			this.notificationsService.isNotified().then ( val => {
@@ -119,7 +95,7 @@ export class ViewHomePage implements OnInit, Observer {
 								this.notificationsService.sendNotification(CARTES[i].id,
 									this.notificationsService.NOTIFICATIONS_TITLE, 
 									this.notificationsService.NOTIFICATIONS_MESSAGE, 
-									this.notificationsService.NOTIFICATIONS_RATE);								                         }
+									this.notificationsService.NOTIFICATIONS_RATE);								                         	     }
 						}
 					});
 				} 

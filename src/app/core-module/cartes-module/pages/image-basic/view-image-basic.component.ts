@@ -5,8 +5,6 @@ import { Carte } from './../../objects/carte';
 import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
 import { ElementImage } from './../../../objects/element-image';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewBasic } from './../basic/view-basic.component';
 import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
@@ -71,34 +69,10 @@ export class ViewImageBasic implements OnInit {
       // on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
     if (this.i<this.myCarte.listeElements.length-1) {
         this.i = this.i + 1;
-
-      // on teste le type de l'élement suivant afin de savoir quelle view ouvrir
-        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
-           this.navCtrl.push(ViewVraiFaux, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
-           this.navCtrl.push(ViewBasic, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
-
-       else if(this.myCarte.listeElements[this.i].typeElem == 'ElementImage') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
-
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
-           this.navCtrl.push(ViewBasic, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
+	this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
+		resultParam: this.myCarte,
+		index: this.i
+	});      // on teste le type de l'élement suivant afin de savoir quelle view ouvrir
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {

@@ -4,8 +4,6 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Carte } from './../../objects/carte';
 import { ElementVraiFaux } from './../../../objects/element-vrai-faux';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
-import { ViewImageBasic } from './../image-basic/view-image-basic.component';
-import { ViewBasic } from './../basic/view-basic.component';
 import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
@@ -38,40 +36,11 @@ export class ViewVraiFaux implements OnInit {
     //on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
     if (this.i<this.myCarte.listeElements.length-1) {
       this.i = this.i + 1;
-
-      //if(this.myCarte.listeElements[this.i] instanceof ElementVraiFaux) {
-        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
-           this.navCtrl.push(ViewVraiFaux, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct //correct correspond à la réponse de l'utilisateur, correcte ou incorrecte
-           });
-       }
-       //else if(this.myCarte.listeElements[this.i] instanceof ElementSavaisTuQue) {
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
-           this.navCtrl.push(ViewBasic, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct
-           });
-       }
-
-       else if(this.myCarte.listeElements[this.i].typeElem == 'ElementImage') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
-
-       //else if(this.myCarte.listeElements[this.i] instanceof Element) {
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct
-           });
-       }
-    }
+	this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
+		resultParam: this.myCarte,
+		index: this.i,
+		correct: this.correct
+	});      }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
       // Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
@@ -88,32 +57,11 @@ export class ViewVraiFaux implements OnInit {
     //pagesSuivante();
       if (this.i<this.myCarte.listeElements.length-1) {
       this.i = this.i + 1;
-
-      //if(this.myCarte.listeElements[this.i] instanceof ElementVraiFaux) {
-        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
-           this.navCtrl.push(ViewVraiFaux, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct //correct correspond à la réponse de l'utilisateur, correcte ou incorrecte
-           });
-       }
-       //else if(this.myCarte.listeElements[this.i] instanceof ElementSavaisTuQue) {
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct
-           });
-       }
-
-       //else if(this.myCarte.listeElements[this.i] instanceof Element) {
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct
-           });
-       }
+	this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
+		resultParam: this.myCarte,
+		index: this.i,
+		correct: this.correct
+	});   
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
@@ -130,33 +78,11 @@ export class ViewVraiFaux implements OnInit {
     //pageSuivante();
       if (this.i<this.myCarte.listeElements.length-1) {
       this.i = this.i + 1;
-
-      //if(this.myCarte.listeElements[this.i] instanceof ElementVraiFaux) {
-        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
-           this.navCtrl.push(ViewVraiFaux, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct //correct correspond à la réponse de l'utilisateur, correcte ou incorrecte
-           });
-       }
-       //else if(this.myCarte.listeElements[this.i] instanceof ElementSavaisTuQue) {
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct
-           });
-       }
-
-       //else if(this.myCarte.listeElements[this.i] instanceof Element) {
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: this.i,
-           correct: this.correct
-           });
-       }
-    }
+	this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
+		resultParam: this.myCarte,
+		index: this.i,
+		correct: this.correct
+	});       }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {
       // Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui

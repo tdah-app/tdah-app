@@ -3,8 +3,6 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
@@ -40,33 +38,10 @@ export class ViewBasic implements OnInit {
     //on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
     if (this.i<this.myCarte.listeElements.length-1) {
       this.i = this.i + 1;
-
-        if(this.myCarte.listeElements[this.i].typeElem == 'ElementVraiFaux') {
-           this.navCtrl.push(ViewVraiFaux, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
-           this.navCtrl.push(ViewBasic, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
-
-       else if(this.myCarte.listeElements[0].typeElem == 'ElementImage') {
-           this.navCtrl.push(ViewImageBasic, {
-           resultParam: this.myCarte,
-           index: 0
-           });
-       }
-
-         else if(this.myCarte.listeElements[this.i].typeElem == 'ElementParent') {
-           this.navCtrl.push(ViewBasic, {
-           resultParam: this.myCarte,
-           index: this.i
-           });
-       }
+	this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
+		resultParam: this.myCarte,
+		index: this.i
+	});
     }
     // si la liste d'élements de la carte a été entièrement parcourue
     else {

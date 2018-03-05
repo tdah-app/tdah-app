@@ -1,4 +1,7 @@
 import { Carte } from './../objects/carte';
+import { ViewBasic } from './../pages/basic/view-basic.component';
+import { ViewVraiFaux } from './../pages/vrai-faux/view-vraifaux.component';
+import { ViewImageBasic } from './../pages/image-basic/view-image-basic.component';
 import { Methode } from './../../methodes-module/objects/methode';
 import { METHODES } from './../../methodes-module/data/methodes';
 import { DataService } from './../../../data-service/data.service';
@@ -41,6 +44,23 @@ export class Utils {
 				}
 			}
 		});
+	}
+
+	public static getNextPage(carte: Carte, index: number) {
+		switch(carte.listeElements[index].typeElem) {
+			case 'ElementVraiFaux':
+				return ViewVraiFaux;
+			case 'ElementSavaisTuQue':
+				return ViewBasic;
+			case 'ElementImage':
+				return ViewImageBasic;
+			case 'ElementParent':
+				if(carte.listeElements[index-1].typeElem === 'ElementVraiFaux') {
+					return ViewImageBasic;
+				} else {
+					return ViewBasic;
+				}
+		}
 	}
 
 }

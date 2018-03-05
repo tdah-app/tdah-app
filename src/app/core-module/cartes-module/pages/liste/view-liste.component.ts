@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewImageBasic } from './../image-basic/view-image-basic.component';
-import { ViewBasic } from './../basic/view-basic.component';
+import { Utils } from './../../utils/utils';
 import { DataService } from '../../../../data-service/data.service';
 
 
@@ -50,30 +48,10 @@ export class ViewListe implements OnInit {
 
 	//une carte a été cliquée/sélectionnée
   	carteTapped(event, carte) {
-	  	if(carte.listeElements[0].typeElem == 'ElementVraiFaux') {
-          		this.navCtrl.push(ViewVraiFaux, {
-           			resultParam: carte,
-           			index: 0
-           		});
-       	  	}
-          	else if(carte.listeElements[0].typeElem == 'ElementSavaisTuQue') {
-          		this.navCtrl.push(ViewBasic, {
-           			resultParam: carte,
-           			index: 0
-           		});
-          	}
-          	else if(carte.listeElements[0].typeElem == 'ElementImage') {
-           		this.navCtrl.push(ViewImageBasic, {
-           			resultParam: carte,
-           			index: 0
-           		});
-       	  	}
-       	  	else {    
-          		this.navCtrl.push(ViewBasic, {
-           			resultParam: carte,
-           			index: 0
-           		});
-       	  	}
+	  this.navCtrl.push(Utils.getNextPage(carte, 0) , {
+		resultParam: carte,
+		index: 0
+	});
   	}
 
 }
