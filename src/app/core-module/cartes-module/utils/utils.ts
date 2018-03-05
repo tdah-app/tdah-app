@@ -46,6 +46,8 @@ export class Utils {
 		});
 	}
 
+	// Méthode renvoyant une référence vers le prochain composant d'une carte
+	// Elle prends la carte concernée et l'index de la page dont on souhaite récupérer le composant
 	public static getNextPage(carte: Carte, index: number) {
 		switch(carte.listeElements[index].typeElem) {
 			case 'ElementVraiFaux':

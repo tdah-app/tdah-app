@@ -12,16 +12,16 @@ import { ToastsService } from './toasts-service/toasts.service';
 import { DataService } from './../data-service/data.service';
 
 @NgModule({
-  imports: [
-	  CommonModule,
-	  CartesModule,
-	  MethodesModule
-  ],
-  providers: [
-	  LocalNotifications,
-	  NotificationsService,
-	  ToastsService
-  ]
+	imports: [
+		CommonModule,
+	  	CartesModule,
+	  	MethodesModule
+  	],
+ 	providers: [
+	  	LocalNotifications,
+	  	NotificationsService,
+	  	ToastsService
+  	]
 })
 export class CoreModule {
 

@@ -48,10 +48,10 @@ export class ViewListe implements OnInit {
 
 	//une carte a été cliquée/sélectionnée
   	carteTapped(event, carte) {
-	  this.navCtrl.push(Utils.getNextPage(carte, 0) , {
-		resultParam: carte,
-		index: 0
-	});
+		this.navCtrl.push(Utils.getNextPage(carte, 0) , {
+			resultParam: carte,
+			index: 0
+		});
   	}
 
 }

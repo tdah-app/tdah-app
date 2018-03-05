@@ -11,25 +11,25 @@ import { CoreModule } from './core-module/core.module';
 import { DataService } from './data-service/data.service';
 
 @NgModule({
-  declarations: [
-    MyApp
-  ],
-  imports: [
-    CoreModule,
-    BrowserModule,
-    IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp
-  ],
-  providers: [
-    DataService,
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+	declarations: [
+    		MyApp
+  	],
+  	imports: [
+    		CoreModule,
+    		BrowserModule,
+    		IonicModule.forRoot(MyApp),
+    		IonicStorageModule.forRoot()
+  	],
+  	bootstrap: [IonicApp],
+  	entryComponents: [
+    		MyApp
+  	],
+  	providers: [
+    		DataService,
+    		StatusBar,
+    		SplashScreen,
+    		{provide: ErrorHandler, useClass: IonicErrorHandler}
+  	]
 })
 export class AppModule {
 
