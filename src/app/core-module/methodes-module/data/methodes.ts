@@ -16,12 +16,12 @@ export const METHODES: Methode[] = [
         		<ElementImage>{
           			texte: '25 minutes chrono !',
           			bouton: 'Passer',
-          			image: '../../../../assets/imgs/minuteur-pomodoro.jpg',
+          			image: 'assets/imgs/minuteur-pomodoro.jpg',
           			typeElem: 'ElementImage'},
         		<ElementImage>{
           			texte: '15minutes de pause ! Profite en pour : \nTe lever, t\'étirer, ou marcher pendant ces quelques minutes.',
           			bouton: 'C\'est reparti !',
-          			image: '../../../../assets/imgs/pause.jpg',
+          			image: 'assets/imgs/pause.jpg',
           			typeElem: 'ElementImage'}
     		]
   	},
@@ -39,12 +39,12 @@ export const METHODES: Methode[] = [
         		<ElementImage>{
           			texte: '25 minutes chrono !',
           			bouton: 'Passer',
-          			image: '../../../../assets/imgs/minuteur-pomodoro.jpg',
+          			image: 'assets/imgs/minuteur-pomodoro.jpg',
           			typeElem: 'ElementImage'},
         		<ElementImage>{
           			texte: '15minutes de pause ! Profite en pour : \nTe lever, t\'étirer, ou marcher pendant ces quelques minutes.',
           			bouton: 'C\'est reparti !',
-          			image: '../../../../assets/imgs/pause.jpg',
+          			image: 'assets/imgs/pause.jpg',
           			typeElem: 'ElementImage'}
     		]
   	},
@@ -62,12 +62,12 @@ export const METHODES: Methode[] = [
         		<ElementImage>{
           			texte: '25 minutes chrono !',
           			bouton: 'Passer',
-          			image: '../../../../assets/imgs/minuteur-pomodoro.jpg',
+          			image: 'assets/imgs/minuteur-pomodoro.jpg',
           			typeElem: 'ElementImage'},
         		<ElementImage>{
           			texte: '15minutes de pause ! Profite en pour : \nTe lever, t\'étirer, ou marcher pendant ces quelques minutes.',
           			bouton: 'C\'est reparti !',
-          			image: '../../../../assets/imgs/pause.jpg',
+          			image: 'assets/imgs/pause.jpg',
           			typeElem: 'ElementImage'}
     		]
   	}

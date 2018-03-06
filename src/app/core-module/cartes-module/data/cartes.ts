@@ -17,13 +17,13 @@ export const CARTES: Carte[] = [
       			<ElementImage>{
         			texte: 'le cerveau c\'est très important', 
         			bouton: 'La suite', 
-        			image: '../../../../assets/imgs/goldfish.jpg',
+        			image: 'assets/imgs/goldfish.jpg',
         			typeElem: 'ElementImage'},
       			<ElementVraiFaux>{
         			bouton: 'vrai faux',
         			texte: 'De manière générale, est-il vrai que nous n\'utilisons que 10% de notre cerveau ?',
         			valeur: true,
-        			image: '../../../../assets/imgs/cerveau.jpg',
+        			image: 'assets/imgs/cerveau.jpg',
         			typeElem: 'ElementVraiFaux'},
       			<ElementParent>{
         			texte: 'En effet, selon Wolfe Fisher et al. Les chercheurs n\'ont pas encore réussi à prouver l\'existence de zones inactives dans le cerveau. À l\'exception des personnes se trouvant dans un état végétatif.', 
@@ -105,17 +105,17 @@ export const CARTES: Carte[] = [
       			<ElementImage>{
         			bouton: 'La suite !',
         			texte: 'Nous avons une mémoire à court terme plus courte que celle d\'un poisson rouge ! \nEn effet, celle-ci a récemment été  calculée à 8.25 secondes en moyennne, alors que celle d\'un poisson est de 9 secondes !',
-        			image: '../../../../assets/imgs/goldfish.jpg',
+        			image: 'assets/imgs/goldfish.jpg',
         			typeElem: 'ElementImage'},
       			<ElementImage>{
         			bouton: 'Réponse ?',
         			texte: '9 secondes c\'est très court !\nIl y a donc des stuces et des outils pour être plus efficace ! \nÀ ton avis, quel est l\'outil le plus répandu pour s\'aider à se souvenir ?',
-        			image: '../../../../assets/imgs/goldfish.jpg',
+        			image: 'assets/imgs/goldfish.jpg',
         			typeElem: 'ElementImage'},
       			<ElementImage>{
         			bouton: 'Retour au menu',
         			texte: 'L\'agenda ou le bloc-note !',
-        			image: '.../../../../assets/imgs/goldfish.jpg',
+        			image: 'assets/imgs/goldfish.jpg',
         			typeElem: 'ElementImage'}
     		]
   	}

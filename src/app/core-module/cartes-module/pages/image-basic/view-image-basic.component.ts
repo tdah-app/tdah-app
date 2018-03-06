@@ -52,11 +52,11 @@ export class ViewImageBasic implements OnInit {
     		} else if (this.correct) {
       			this.viewCtrl.showBackButton(false);
       			this.title = 'Correct !';
-      			this.image = "./../assets/imgs/correct.jpg";
+      			this.image = "assets/imgs/correct.jpg";
     		} else { 
       			this.viewCtrl.showBackButton(false);
       			this.title = 'Incorrect !';
-      			this.image = "./../assets/imgs/incorrect.jpg";
+      			this.image = "assets/imgs/incorrect.jpg";
     		}
   	}
 
