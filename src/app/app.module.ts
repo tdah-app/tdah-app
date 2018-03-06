@@ -41,7 +41,8 @@ export class AppModule {
 	// On initialise les données si aucune carte n'est présente 
   	// alors c'est la 1er utilisation de l'application
   	// On ajoute donc une première carte
-	constructor(private dataService: DataService) {
+	constructor(private dataService: DataService, private statusBar: StatusBar) {
+		// On initialise les données
 		this.dataService.getData(this.dataService.RECEIVED_CARDS).then( receivedCards => {
 			if(!receivedCards) {
 				this.dataService.addData(this.firstCard, this.dataService.RECEIVED_CARDS);
@@ -52,6 +53,9 @@ export class AppModule {
 				this.dataService.addData(this.firstMet, this.dataService.RECEIVED_METHODS);
 			}
 		});
+		// On modifie la couleur de la bar de status android
+		//this.statusBar.overlaysWebView(true);
+		this.statusBar.backgroundColorByHexString('#59B077');
 	}
 
 }
