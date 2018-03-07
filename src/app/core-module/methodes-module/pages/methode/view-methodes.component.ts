@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Methode } from './../../objects/methode';
 import { METHODES } from './../../data/methodes';
+import { Utils } from './../../utils/utils';
 import { DataService } from '../../../../data-service/data.service';
 import { ToastsService } from '../../../toasts-service/toasts.service';
 
@@ -38,6 +39,11 @@ export class ViewMethodes implements OnInit {
 			this.toastsService.sendToast('Méthode non débloquée.');
 	  	} else {
 			// On passe sur la page de la méthode étant donnée qu'elle est débloquée
+			this.navCtrl.push(Utils.getNextPage(methode, 0) , {
+				resultParam: methode,
+				index: 0
+			});    
+
 	  	}
   	}
 
