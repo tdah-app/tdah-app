@@ -48,23 +48,28 @@ export class CoreModule {
 	}
 
 	// On regarde si une notification est déjà pris en charge par le
-	// système et est en attente. Si aucune notifications n'est en
+	// système et est en attente (prévues ou déclenchées). Si aucune notifications n'est en
 	// attente alors on programme un notification dans un temps
 	// disponible dans la variable NOTIFICATIONS_RATE
 	private checkScheduled() {
-		this.notificationsService.isNotified().then ( val => {
-			if(val.length == 0) {
-				this.dataService.getData(this.dataService.RECEIVED_CARDS).then( receivedCards => {
-					if(receivedCards) {
-						let i = 0;
-						while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
-							i++;
-						}
-						if(i < CARTES.length) {
-							this.notificationsService.sendNotification(CARTES[i].id,
-								this.notificationsService.NOTIFICATIONS_TITLE, 
-								this.notificationsService.NOTIFICATIONS_MESSAGE, 
-								this.notificationsService.NOTIFICATIONS_RATE);												     }
+		this.notificationsService.isNotified().then ( valNot => {
+			if(valNot.length == 0) {
+				this.notificationsService.isTriggered().then( valTrigg => {
+					if(valTrigg.length == 0) {
+						this.dataService.getData(this.dataService.RECEIVED_CARDS).then( receivedCards => {
+							if(receivedCards) {
+								let i = 0;
+								while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
+									i++;
+								}
+								if(i < CARTES.length) {
+									this.notificationsService.sendNotification(CARTES[i].id,
+										this.notificationsService.NOTIFICATIONS_TITLE, 
+										this.notificationsService.NOTIFICATIONS_MESSAGE, 
+										this.notificationsService.NOTIFICATIONS_RATE);			
+								}
+							}
+						});
 					}
 				});
 			} 

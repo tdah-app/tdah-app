@@ -39,6 +39,12 @@ export class NotificationsService implements Observable {
 		return this.localNotifications.getScheduledIds();
 	}
 
+	// Retourne une promesse, lorsque celle ci est résolue retourne un tableau
+	// avec les identifiants des notifications déclenchées
+	isTriggered() {
+		return this.localNotifications.getTriggeredIds();
+	}
+
 	// Ajoute un écouteur sur l'événement consistant à cliquer sur une notification reçus
 	// Lorsque cette évenement se déclenche les objets qui observent sont notifés
 	listenNotifications() {
@@ -56,6 +62,11 @@ export class NotificationsService implements Observable {
 	// Callback appele lors du click sur la notification
 	private callbackClick = function(notification) {
 		NotificationsService.instance.notifyObservers('click', notification.id);
+	}
+
+	// Annule toutes les notifications
+	cancelNotif() {
+		return this.localNotifications.cancelAll();
 	}
 
 	// Lance une notification, le paramèter inHours permet d'indiquer dans combien

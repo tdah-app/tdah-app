@@ -100,10 +100,13 @@ export class ViewHomePage implements OnInit, Observer {
 								if(CARTES[i].id == idCard) {
 									i++;
 									if(i < CARTES.length) {
-										this.notificationsService.sendNotification(CARTES[i].id,
-											this.notificationsService.NOTIFICATIONS_TITLE, 
-											this.notificationsService.NOTIFICATIONS_MESSAGE, 
-											this.notificationsService.NOTIFICATIONS_RATE);
+										this.notificationsService.cancelNotif().then( () => {
+											this.notificationsService.sendNotification(CARTES[i].id,
+												this.notificationsService.NOTIFICATIONS_TITLE, 
+												this.notificationsService.NOTIFICATIONS_MESSAGE, 
+												this.notificationsService.NOTIFICATIONS_RATE);
+
+										});
 									}
 								}
 							}
