@@ -26,11 +26,11 @@ import { DataService } from './../data-service/data.service';
 export class CoreModule {
 
 	constructor(private notificationsService: NotificationsService, private alertCtrl: AlertController, private dataService: DataService) {
-		//this.checkPermission();
-		//this.listenNotifications();
-		//this.checkScheduled();
+		this.checkPermission();
+		this.listenNotifications();
+		this.checkScheduled();
 	}
-
+	
 	// On vérifie les autorisations et on affiche un message indiquant 
 	// qu'il faut autoriser l'application a envoyé des messages
 	private checkPermission() {

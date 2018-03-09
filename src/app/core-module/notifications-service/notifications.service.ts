@@ -42,12 +42,18 @@ export class NotificationsService implements Observable {
 	// Ajoute un écouteur sur l'événement consistant à cliquer sur une notification reçus
 	// Lorsque cette évenement se déclenche les objets qui observent sont notifés
 	listenNotifications() {
-		this.localNotifications.on("click", function(notification, state) {
-			NotificationsService.instance.notifyObservers('click', notification.id);
-		});
-		this.localNotifications.on("trigger", function(notification, state) {
-			NotificationsService.instance.notifyObservers('trigger', notification.id);
-		});
+		this.localNotifications.un("click", this.callbackClick);
+		this.localNotifications.on("click", this.callbackClick);
+		this.localNotifications.un("click", this.callbackTrigger);
+		this.localNotifications.on("click", this.callbackTrigger);
+	}
+
+	private callbackTrigger = function(notification) {
+		NotificationsService.instance.notifyObservers('trigger', notification.id);
+	};
+
+	private callbackClick = function(notification) {
+		NotificationsService.instance.notifyObservers('click', notification.id);
 	}
 
 	// Lance une notification, le paramèter inHours permet d'indiquer dans combien
@@ -63,7 +69,18 @@ export class NotificationsService implements Observable {
 
 	// Ajoute un objet observateur
 	registerObserver(o: Observer) {
-		this.observers.push(o);
+		// On écoute un composant par conséquent il faut vérifier que plusieur référence vers les composants
+		// ne seront ajouté. En effet, à chaque fois que l'on revient sur la page correspondant au composant 
+		// qui écoute angular va reinstancié le composant avec un nouvelle référence. Hors le service de 
+		// notification est lui un singleton et la liste des objets observer reste fixe et conserve des anciennes
+		// référence vers les anciennes instanciation du composant. Le garbage collector ne peut alors pas détruire
+		// ces composants et on va activer la méthode update à plusieurs reprise. On doit onc veiller à ce qu'une 
+		// seule instance d'un composant puisse obervé. Dans notre cas on à un seul composant observateur ainsi pour
+		// simplifier on regade simplement si n'y a pas déjà d'observateur. Si on avait plusieurrs composant différents
+		// qui voulaient observé il faudrait vérifier qu'on a un seul observateur par composant.
+		if(this.observers.length == 0) {
+			this.observers.push(o);
+		}
 	}
 
 	// Retire un objet observateur

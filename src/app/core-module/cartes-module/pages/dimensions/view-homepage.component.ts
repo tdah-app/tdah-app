@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from '../../objects/carte';
@@ -19,6 +20,9 @@ export class ViewHomePage implements OnInit, Observer {
 	private dimensions: any[];
 
   	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService, private notificationsService: NotificationsService) {
+		
+		notificationsService.registerObserver(this);
+
 		this.cartes = new Array(0);
 		this.dimensions = [
 			{
@@ -41,12 +45,13 @@ export class ViewHomePage implements OnInit, Observer {
 				"name": "Régulation des émotions",
 				"path": "regulation-des-emotions"
 			}
-		]
+		];
+
   	}
 
-
+	// On charge les cartes à l'initialisation du composant
   	ngOnInit() {
-          	/*this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
+		this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
           		if(receivedCards) {
              			//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
              			for (let i in CARTES) {
@@ -57,8 +62,8 @@ export class ViewHomePage implements OnInit, Observer {
                  			}
              			}
        			} 
-     	  	});*/
-    	  	this.cartes = CARTES;      
+     	  	});
+    	  	//this.cartes = CARTES; 
   	}
 
 	//une dimension a été sélectionnée
@@ -82,7 +87,7 @@ export class ViewHomePage implements OnInit, Observer {
 				index: 0,
 			});   
 		} else if(evtType === 'trigger') {
-			this.dataProvider.addData(idCard, this.dataProvider.READ_CARDS);
+			this.dataProvider.addData(idCard, this.dataProvider.RECEIVED_CARDS);
 			this.notificationsService.isNotified().then ( val => {
 				if(val.length == 0) {
 					this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
@@ -92,10 +97,16 @@ export class ViewHomePage implements OnInit, Observer {
 								i++;
 							}
 							if(i < CARTES.length) {
-								this.notificationsService.sendNotification(CARTES[i].id,
-									this.notificationsService.NOTIFICATIONS_TITLE, 
-									this.notificationsService.NOTIFICATIONS_MESSAGE, 
-									this.notificationsService.NOTIFICATIONS_RATE);								                         	     }
+								if(CARTES[i].id == idCard) {
+									i++;
+									if(i < CARTES.length) {
+										this.notificationsService.sendNotification(CARTES[i].id,
+											this.notificationsService.NOTIFICATIONS_TITLE, 
+											this.notificationsService.NOTIFICATIONS_MESSAGE, 
+											this.notificationsService.NOTIFICATIONS_RATE);
+									}
+								}
+							}
 						}
 					});
 				} 
