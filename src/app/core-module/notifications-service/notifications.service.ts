@@ -48,10 +48,12 @@ export class NotificationsService implements Observable {
 		this.localNotifications.on("click", this.callbackTrigger);
 	}
 
+	// Callback appele lors du déclenchement d'une notification
 	private callbackTrigger = function(notification) {
 		NotificationsService.instance.notifyObservers('trigger', notification.id);
 	};
 
+	// Callback appele lors du click sur la notification
 	private callbackClick = function(notification) {
 		NotificationsService.instance.notifyObservers('click', notification.id);
 	}
