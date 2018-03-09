@@ -51,7 +51,7 @@ export class ViewHomePage implements OnInit, Observer {
 
 	// On charge les cartes à l'initialisation du composant
   	ngOnInit() {
-		this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
+		/*this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
           		if(receivedCards) {
              			//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
              			for (let i in CARTES) {
@@ -62,8 +62,8 @@ export class ViewHomePage implements OnInit, Observer {
                  			}
              			}
        			} 
-     	  	});
-    	  	//this.cartes = CARTES; 
+     	  	});*/
+    	  	this.cartes = CARTES; 
   	}
 
 	//une dimension a été sélectionnée
