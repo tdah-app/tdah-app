@@ -10,12 +10,12 @@ import { ElementRadioBouton } from '../../objects/element-radio-bouton';
 export const CARTES: Carte[] = [
 
   	{
-    		nom: 'Carte 1',
-		icon: 'arrow-forward',
-		iconEtat: 'eye-off',
-		iconEtatColor: 'danger',
-    messageNotif: 'notif carte 1',
-    		id: 0,
+    	nom: 'Carte 1',
+		  icon: 'arrow-forward',
+		  iconEtat: 'eye-off',
+		  iconEtatColor: 'danger',
+      messageNotif: 'notif carte 1',
+    	id: 0,
     		dim: "Attention",
     		listeElements: [
       			<ElementImage>{
@@ -37,13 +37,13 @@ export const CARTES: Carte[] = [
   	},
 
   	{
-    		nom: 'Carte 2',
-		icon: 'arrow-forward',
-		iconEtat: 'eye-off',
-		iconEtatColor: 'danger',
-    messageNotif: 'notif carte 2',
-    		id: 1,
-    		dim: "Attention",
+    	nom: 'Carte 2',
+		  icon: 'arrow-forward',
+		  iconEtat: 'eye-off',
+		  iconEtatColor: 'danger',
+      messageNotif: 'notif carte 2',
+    	id: 1,
+    	dim: "Attention",
     		listeElements: [ 
       			<ElementVraiFaux>{
         			bouton: 'retour au menu',
@@ -67,12 +67,12 @@ export const CARTES: Carte[] = [
   	},
 
   	{
-    		nom: 'Carte 3',
-		icon: 'arrow-forward',
-		iconEtat: 'eye-off',
-		iconEtatColor: 'danger',
-    messageNotif: 'notif carte 3',
-    		id: 2,
+    	nom: 'Carte 3',
+		  icon: 'arrow-forward',
+		  iconEtat: 'eye-off',
+		  iconEtatColor: 'danger',
+      messageNotif: 'notif carte 3',
+    	id: 2,
     		dim: "Mémoire",
     		listeElements: [
       			<ElementSavaisTuQue>{
@@ -101,13 +101,13 @@ export const CARTES: Carte[] = [
   	},
 
   	{
-    		nom:'Plus organisé qu\'un poisson rouge ?',
-    		id: 3,
-		icon: 'arrow-forward',
-		iconEtat: 'eye-off',
-		iconEtatColor: 'danger',
-    messageNotif: 'Plus organisé qu\'un poisson rouge ?',
-    		dim: "Mémoire",
+      nom:'Plus organisé qu\'un poisson rouge ?',
+    	id: 3,
+		  icon: 'arrow-forward',
+		  iconEtat: 'eye-off',
+		  iconEtatColor: 'danger',
+      messageNotif: 'Plus organisé qu\'un poisson rouge ?',
+    	dim: "Mémoire",
     		listeElements: [
       			<ElementImage>{
         			bouton: 'La suite !',
@@ -128,13 +128,13 @@ export const CARTES: Carte[] = [
   	},
 
     {
-        nom:'Un peu de motivation ?',
-        id: 4,
-    icon: 'arrow-forward',
-    iconEtat: 'eye-off',
-    iconEtatColor: 'danger',
-    messageNotif: 'Un peu de motivation ?',
-        dim: "Régulation des émotions",
+      nom:'Un peu de motivation ?',
+      id: 4,
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'Un peu de motivation ?',
+      dim: "Régulation des émotions",
         listeElements: [
             <ElementVideo>{
               texte: 'Just do it !!',
@@ -146,13 +146,13 @@ export const CARTES: Carte[] = [
     },
 
     {
-        nom:'Jeu de la liste de courses',
-        id: 4,
-    icon: 'arrow-forward',
-    iconEtat: 'eye-off',
-    iconEtatColor: 'danger',
-    messageNotif: 'Le jeu de la liste de courses',
-        dim: "Mémoire",
+      nom:'Jeu de la liste de courses',
+      id: 4,
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'Le jeu de la liste de courses',
+      dim: "Mémoire",
         listeElements: [
             <ElementImage>{
               texte: 'Observe attentivement cette liste...',
@@ -172,6 +172,42 @@ export const CARTES: Carte[] = [
               radioBoutons: ['0','1','2','3','4','5'],
               reponse: '3',
               typeElem: 'ElementRadioBouton'
+            },
+            <ElementImage>{
+              texte: '3 !',
+              bouton: 'Retour à la boîte aux cartes',
+              image: 'assets/imgs/trois.jpg',
+              typeElem: 'ElementImage'
+            }
+        ]
+    },
+
+    {
+        nom:'C\est le monde à l\'envers !',
+        id: 5,
+    icon: 'arrow-forward',
+    iconEtat: 'eye-off',
+    iconEtatColor: 'danger',
+    messageNotif: 'C\est le monde à l\'envers ?',
+        dim: "Attention",
+        listeElements: [
+            <ElementImage>{
+              texte: 'Reconnais-tu cette personne ?',
+              bouton: 'Tourner l\'image !',
+              image: 'assets/imgs/obamaEnvers.png',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: 'Bizarre non ?',
+              bouton: 'La suite !',
+              image: 'assets/imgs/obamaEndroit.png',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: 'Lorsque nous analysons des visages, notre cerveau en réalité analyse des parties de celui-ci et les assemble sous forme de puzzle. Chaque pièce est donc reconnue séparément. \nC\'est pour cela que la première image ne nous choque pas : car nous reconnaissons les yeux et la bouche à l\'endroit ! \nCela ne marche cependant pas lorsqu\'un visage est à l\'endroit, car notre vue va essayer de corriger ce qui nous parait bizarre par rapport à notre perception habituelle des visages.',
+              bouton: 'La suite !',
+              image: 'assets/imgs/perception_visage.jpg',              
+              typeElem: 'ElementImage'
             },
             <ElementImage>{
               texte: '3 !',

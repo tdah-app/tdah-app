@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{myMethode.nom}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <div text-center>
+      <!-- <ion-card-header>
+        {{myMethode.nom}}
+      </ion-card-header> -->
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      Savais-tu que ?
+    </ion-card-header>
+    <ion-card-content>
+      {{texte}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+  <img src = "{{image}}" >
+  </ion-card>
+
+  <div text-center>
+    <button ion-button (click)="boutonTapped()" round>{{nomBouton}}</button>
+  </div>
+</ion-content>

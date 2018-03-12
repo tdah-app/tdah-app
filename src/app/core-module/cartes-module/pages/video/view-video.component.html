@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{myCarte.dim}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <div text-center>
+      <ion-card-header>
+        {{title}}
+      </ion-card-header>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      {{texte}}
+    </ion-card-content>
+    <iframe width="100%" height="300" [src]="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </ion-card>
+
+  <div text-center>
+    <button ion-button (click)="boutonTapped()" round>{{nomBouton}}</button>
+  </div>
+</ion-content>
