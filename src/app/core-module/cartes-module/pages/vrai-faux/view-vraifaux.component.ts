@@ -8,6 +8,10 @@ import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
 
+import { ViewBasic } from './../basic/view-basic.component';
+import { ViewImageBasic } from './../image-basic/view-image-basic.component';
+import { ViewVideo } from './../video/view-video.component';
+
 @Component({
   selector: 'view-vraifaux',
   templateUrl: 'view-vraifaux.component.html',
@@ -31,23 +35,23 @@ export class ViewVraiFaux implements OnInit {
     		else this.nomBouton = 'Retour au menu';
   	}
 
-  	pageSuivante() {  
-    		//on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
-    		if (this.i<this.myCarte.listeElements.length-1) {
-      			this.i = this.i + 1;
-			this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
-				resultParam: this.myCarte,
-				index: this.i,
-				correct: this.correct
-			});
-		} else {
-      			// Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
-      			// Regarde si on débloque une nouvelle méthode et ajoute si oui
-      			Utils.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
-      			this.navCtrl.setRoot(ViewHomePage);
-      			this.navCtrl.popToRoot();
-    		}
-  	}
+  // 	pageSuivante() {  
+  //   		//on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
+  //   		if (this.i<this.myCarte.listeElements.length-1) {
+  //     			this.i = this.i + 1;
+		// 	this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i) , {
+		// 		resultParam: this.myCarte,
+		// 		index: this.i,
+		// 		correct: this.correct
+		// 	});
+		// } else {
+  //     			// Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
+  //     			// Regarde si on débloque une nouvelle méthode et ajoute si oui
+  //     			Utils.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
+  //     			this.navCtrl.setRoot(ViewHomePage);
+  //     			this.navCtrl.popToRoot();
+  //   		}
+  // 	}
 
   	vraiTapped() {
     		this.correct = (<ElementVraiFaux>this.myCarte.listeElements[this.i]).valeur == true;

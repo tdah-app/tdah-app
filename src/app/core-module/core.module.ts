@@ -75,7 +75,7 @@ export class CoreModule {
 	private showAlert() {
 		let alert = this.alertCtrl.create({
     			title: 'TDAH-APP',
-      			subTitle: 'Veuillez autorisez l\'envoie de notifications',
+      			subTitle: 'Veuillez autoriser l\'envoie de notifications',
       			buttons: ['OK']
     		});
     		alert.present();

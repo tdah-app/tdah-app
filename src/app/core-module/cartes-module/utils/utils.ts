@@ -1,6 +1,8 @@
 import { Carte } from './../objects/carte';
 import { ViewBasic } from './../pages/basic/view-basic.component';
 import { ViewVraiFaux } from './../pages/vrai-faux/view-vraifaux.component';
+import { ViewVideo } from './../pages/video/view-video.component';
+import { ViewRadioBouton } from './../pages/radio-bouton/view-radio-bouton.component';
 import { ViewImageBasic } from './../pages/image-basic/view-image-basic.component';
 import { Methode } from './../../methodes-module/objects/methode';
 import { METHODES } from './../../methodes-module/data/methodes';
@@ -47,7 +49,7 @@ export class Utils {
 	}
 
 	// Méthode renvoyant une référence vers le prochain composant d'une carte
-	// Elle prends la carte concernée et l'index de la page dont on souhaite récupérer le composant
+	// Elle prend la carte concernée et l'index de la page dont on souhaite récupérer le composant
 	public static getNextPage(carte: Carte, index: number) {
 		switch(carte.listeElements[index].typeElem) {
 			case 'ElementVraiFaux':
@@ -56,6 +58,10 @@ export class Utils {
 				return ViewBasic;
 			case 'ElementImage':
 				return ViewImageBasic;
+			case 'ElementVideo':
+				return ViewVideo;
+			case 'ElementRadioBouton':
+				return ViewRadioBouton;
 			case 'ElementParent':
 				if(carte.listeElements[index-1].typeElem === 'ElementVraiFaux') {
 					return ViewImageBasic;

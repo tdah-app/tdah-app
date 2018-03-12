@@ -9,6 +9,10 @@ import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
 
+import { ViewBasic } from './../basic/view-basic.component';
+import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
+import { ViewVideo } from './../video/view-video.component';
+
 @Component({
   selector: 'view-image-basic',
   templateUrl: 'view-image-basic.component.html',
@@ -46,6 +50,7 @@ export class ViewImageBasic implements OnInit {
     		//si le type de l'élement est différent, le texte à afficher est alors l'attribut texte normal.
     		else this.texte = this.myCarte.listeElements[this.i].texte;
 
+        //si le type de l'élement précédent était 'ElementVraiFaux', alors on récupère la valeur de la réponse de l'utilisateur afin d'afficher la réponse en conséquence.
     		if (this.correct == undefined) {
       			this.title = this.myCarte.nom;
       			this.image = (<ElementImage>this.myCarte.listeElements[this.i]).image;

@@ -3,6 +3,9 @@ import { ElementParent } from '../../objects/element-parent';
 import { ElementVraiFaux } from '../../objects/element-vrai-faux';
 import { ElementSavaisTuQue } from '../../objects/element-savais-tu-que';
 import { ElementImage } from '../../objects/element-image';
+import { ElementVideo } from '../../objects/element-video';
+import { ElementRadioBouton } from '../../objects/element-radio-bouton';
+
 
 export const CARTES: Carte[] = [
 
@@ -11,6 +14,7 @@ export const CARTES: Carte[] = [
 		icon: 'arrow-forward',
 		iconEtat: 'eye-off',
 		iconEtatColor: 'danger',
+    messageNotif: 'notif carte 1',
     		id: 0,
     		dim: "Attention",
     		listeElements: [
@@ -18,7 +22,7 @@ export const CARTES: Carte[] = [
         			texte: 'le cerveau c\'est très important', 
         			bouton: 'La suite', 
         			image: 'assets/imgs/goldfish.jpg',
-        			typeElem: 'ElementImage'},
+        			typeElem: 'ElementImage'},            
       			<ElementVraiFaux>{
         			bouton: 'vrai faux',
         			texte: 'De manière générale, est-il vrai que nous n\'utilisons que 10% de notre cerveau ?',
@@ -37,6 +41,7 @@ export const CARTES: Carte[] = [
 		icon: 'arrow-forward',
 		iconEtat: 'eye-off',
 		iconEtatColor: 'danger',
+    messageNotif: 'notif carte 2',
     		id: 1,
     		dim: "Attention",
     		listeElements: [ 
@@ -66,6 +71,7 @@ export const CARTES: Carte[] = [
 		icon: 'arrow-forward',
 		iconEtat: 'eye-off',
 		iconEtatColor: 'danger',
+    messageNotif: 'notif carte 3',
     		id: 2,
     		dim: "Mémoire",
     		listeElements: [
@@ -100,6 +106,7 @@ export const CARTES: Carte[] = [
 		icon: 'arrow-forward',
 		iconEtat: 'eye-off',
 		iconEtatColor: 'danger',
+    messageNotif: 'Plus organisé qu\'un poisson rouge ?',
     		dim: "Mémoire",
     		listeElements: [
       			<ElementImage>{
@@ -118,7 +125,62 @@ export const CARTES: Carte[] = [
         			image: 'assets/imgs/goldfish.jpg',
         			typeElem: 'ElementImage'}
     		]
-  	}
+  	},
+
+    {
+        nom:'Un peu de motivation ?',
+        id: 4,
+    icon: 'arrow-forward',
+    iconEtat: 'eye-off',
+    iconEtatColor: 'danger',
+    messageNotif: 'Un peu de motivation ?',
+        dim: "Régulation des émotions",
+        listeElements: [
+            <ElementVideo>{
+              texte: 'Just do it !!',
+              bouton: 'La suite !',
+              video: 'https://www.youtube.com/embed/ZXsQAXx_ao0',
+              typeElem: 'ElementVideo'
+            }
+        ]
+    },
+
+    {
+        nom:'Jeu de la liste de courses',
+        id: 4,
+    icon: 'arrow-forward',
+    iconEtat: 'eye-off',
+    iconEtatColor: 'danger',
+    messageNotif: 'Le jeu de la liste de courses',
+        dim: "Mémoire",
+        listeElements: [
+            <ElementImage>{
+              texte: 'Observe attentivement cette liste...',
+              bouton: 'C\'est bon !',
+              image: 'assets/imgs/listeDeCourses.png',
+              typeElem: 'ElementImage'
+            },
+            <ElementVideo>{
+              texte: 'Regarde cette vidéo',
+              bouton: 'La suite !',
+              video: 'https://www.youtube.com/embed/QE-T_kikIKI',
+              typeElem: 'ElementVideo'
+            },
+            <ElementRadioBouton>{
+              texte: 'Combien y avait-il de légumes sur la liste de courses ?',
+              bouton: 'Réponse ?',
+              radioBoutons: ['0','1','2','3','4','5'],
+              reponse: '3',
+              typeElem: 'ElementRadioBouton'
+            },
+            <ElementImage>{
+              texte: '3 !',
+              bouton: 'Retour à la boîte aux cartes',
+              image: 'assets/imgs/trois.jpg',
+              typeElem: 'ElementImage'
+            }
+        ]
+    }
 
 ]
 
