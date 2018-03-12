@@ -35,70 +35,45 @@ export const CARTES: Carte[] = [
         			typeElem: 'ElementParent'}
       	  	]
   	},
-
   	{
-    	nom: 'Carte 2',
+    	nom: 'Le méthylphénidate',
 		  icon: 'arrow-forward',
 		  iconEtat: 'eye-off',
 		  iconEtatColor: 'danger',
-      messageNotif: 'notif carte 2',
+      messageNotif: 'Le méthylphénidate...?',
     	id: 1,
-    	dim: "Attention",
-    		listeElements: [ 
-      			<ElementVraiFaux>{
-        			bouton: 'retour au menu',
-        			texte: 'vrai ou faux ? bonne question',
-        			valeur: true,
-        			image: '',
-        			typeElem: 'ElementVraiFaux'}, 
-      			<ElementSavaisTuQue>{
-         			bouton: 'et apres ?',
-         			texte: 'blabla',
-         			sujet: 'la nicotine',
-         			positif: 'ça détend et ça relax etc',
-         			negatif: 'c\'est mauvais pour la santé, les poumons etc.',
-         			conseil: 'donc il vaut mieux éviter de fumer, et plutot macher du chewing gum',
-         			typeElem: 'ElementSavaisTuQue'},
-      			<ElementParent>{
-        			texte: 'savais-tu que la mémoire d\'un poisson rouge est bien ', 
-        			bouton: 'retour au menu',
-        			typeElem: 'ElementParent'}
-    		]
-  	},
-
-  	{
-    	nom: 'Carte 3',
-		  icon: 'arrow-forward',
-		  iconEtat: 'eye-off',
-		  iconEtatColor: 'danger',
-      messageNotif: 'notif carte 3',
-    	id: 2,
     		dim: "Mémoire",
     		listeElements: [
       			<ElementSavaisTuQue>{
-        			bouton: 'et apres ???',
-        			texte: 'blabla2',
-        			sujet: 'le méthylphénidate',
-        			positif: 'ça permet d\'augmenter la concentration etc',
-        			negatif: 'ça apporte plein d\'effets indésirable',
+        			bouton: 'Retour à la boite aux cartes !',
+        			texte: '',
+        			sujet: 'Le méthylphénidate (Ritalin, Focalin, Medikinet, Concerta) ',
+        			positif: 'bloque le transporteur de la dopamine, ce qui augmente la concentration de dopamine dans l\'espace synaptique et facilite la transmission d\'information. Ce traitement augmente l\'éveil, améliore l\'attention et les fonctions exécutives. Il diminue aussi l\'hyperactivité.',
+        			negatif: 'ça apporte plein d\'effets indésirables',
         			conseil: 'donc il vaut mieux éviter d\'en prendre, et plutot utiliser TDApp',
-        			typeElem: 'ElementSavaisTuQue'},
-      			<ElementVraiFaux>{
-        			bouton: 'vrai faux',
-        			texte: 'vrai ou faux ? très bonne question',
-        			valeur: false,
-        			image: '',
-        			typeElem: 'ElementVraiFaux'},
-      			<ElementParent>{
-        			texte: 'le cerveau c\'est très important 1', 
-        			bouton: 'La suite', 
-        			typeElem: 'ElementParent'},
-      			<ElementParent>{
-   		     		texte: 'le cerveau c\'est très important 2', 
-        			bouton: 'Retour au menu', 
-        			typeElem: 'ElementParent'}
+        			typeElem: 'ElementSavaisTuQue'}
     		]
   	},
+
+    {
+      nom: 'La nicotine',
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'La nicotine...?',
+      id: 2,
+        dim: "Mémoire",
+        listeElements: [
+            <ElementSavaisTuQue>{
+              bouton: 'Retour à la boite aux cartes !',
+              texte: '',
+              sujet: 'La nicotine ',
+              positif: 'stimule les neurones dopaminergiques et améliore dans un premier temps la concentration.',
+              negatif: ' engendre un stress négatif, provoque (avec de grandes probabilités) des cancers, des maladies cardiovasculaires, des infections pulmonaires, une baisse de la fertilité, ainsi que des accidents d\'inattention chez les TDAH fumeurs.',
+              conseil: 'donc il vaut mieux éviter d\'en prendre, et plutot utiliser TDApp',
+              typeElem: 'ElementSavaisTuQue'}
+        ]
+    },
 
   	{
       nom:'Plus organisé qu\'un poisson rouge ?',
@@ -147,7 +122,7 @@ export const CARTES: Carte[] = [
 
     {
       nom:'Jeu de la liste de courses',
-      id: 4,
+      id: 5,
       icon: 'arrow-forward',
       iconEtat: 'eye-off',
       iconEtatColor: 'danger',
@@ -174,7 +149,7 @@ export const CARTES: Carte[] = [
               typeElem: 'ElementRadioBouton'
             },
             <ElementImage>{
-              texte: '3 !',
+              texte: 'Il y en avait 3 !',
               bouton: 'Retour à la boîte aux cartes',
               image: 'assets/imgs/trois.jpg',
               typeElem: 'ElementImage'
@@ -183,12 +158,12 @@ export const CARTES: Carte[] = [
     },
 
     {
-        nom:'C\est le monde à l\'envers !',
-        id: 5,
+        nom:'C\'est le monde à l\'envers !',
+        id: 6,
     icon: 'arrow-forward',
     iconEtat: 'eye-off',
     iconEtatColor: 'danger',
-    messageNotif: 'C\est le monde à l\'envers ?',
+    messageNotif: 'C\'est le monde à l\'envers ?',
         dim: "Attention",
         listeElements: [
             <ElementImage>{
@@ -228,7 +203,27 @@ export const CARTES: Carte[] = [
               typeElem: 'ElementImage'
             }
         ]
-    }
+    },
+
+    {
+      nom: 'La cocaïne',
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'La cocaïne...?',
+      id: 2,
+        dim: "Mémoire",
+        listeElements: [
+            <ElementSavaisTuQue>{
+              bouton: 'Retour à la boite aux cartes !',
+              texte: '',
+              sujet: 'La cocaïne et les amphétamines ',
+              positif: 'bloquent la recapture et augmentent rapidement la dopamine.',
+              negatif: ' créent un effet euphorisant puissant, rapide et bref, entrainant une forte dépendance : surexcitation, accélération de pensées, logorrhée, baisse de l\'humeur, irritabilité, illusion d\'invicibilité. Mais encore des insomnies, dépression, risque suicidaire, agitation, violence, angoisse, confusion, hallucinations, psychose. Et enfin de la perte de poids, de l\'épuisement, des maladies infectieuses, des troubles visuels, respiratoires, cardio-vasculaires, et danger de mort. ',
+              conseil: 'donc il vaut mieux éviter d\'en prendre, et plutot utiliser TDApp',
+              typeElem: 'ElementSavaisTuQue'}
+        ]
+    },
 
 ]
 

@@ -17,6 +17,9 @@ export class ViewBasic implements OnInit {
   	i: number;
   	correct: undefined;
   	title: string;
+    valeur_mais: string = undefined;
+    valeur_conseil: string = undefined;
+    texte: string;
 
   	constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataService, public toastService: ToastsService) {
     		this.myCarte = navParams.get("resultParam");
@@ -30,6 +33,11 @@ export class ViewBasic implements OnInit {
     		else if (this.correct)
       			this.title = 'Correct !';
     		else this.title = 'Incorrect !';
+        if (this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue') {
+          this.valeur_mais = '\nMAIS : \n';
+          this.valeur_conseil = '\n\nConseil :\n';
+        }
+        else this.texte = this.myCarte.listeElements[this.i].texte;
   	}
 
   	boutonTapped() {

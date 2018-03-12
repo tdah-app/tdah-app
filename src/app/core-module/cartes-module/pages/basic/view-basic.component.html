@@ -22,7 +22,17 @@
       Savais-tu que ?
     </ion-card-header>
     <ion-card-content>
-      {{myCarte.listeElements[i].texte}}
+    <div align="justify">
+      {{texte}}
+      <B>{{myCarte.listeElements[i].sujet}}</B>
+      <FONT color="#00BA00">{{myCarte.listeElements[i].positif}}</FONT>
+       <br /> <br />
+      {{valeur_mais}}
+      <FONT color="#FF0000">{{myCarte.listeElements[i].negatif}}</FONT>
+       <br /> <br />
+      {{valeur_conseil}}
+      <I><FONT color="#383838">{{myCarte.listeElements[i].conseil}}</FONT></I>
+    </div>
     </ion-card-content>
   </ion-card>
 

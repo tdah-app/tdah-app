@@ -50,18 +50,18 @@ export class ViewImageBasic implements OnInit {
     		//si le type de l'élement est différent, le texte à afficher est alors l'attribut texte normal.
     		else this.texte = this.myCarte.listeElements[this.i].texte;
 
+        this.image = (<ElementImage>this.myCarte.listeElements[this.i]).image;
         //si le type de l'élement précédent était 'ElementVraiFaux', alors on récupère la valeur de la réponse de l'utilisateur afin d'afficher la réponse en conséquence.
     		if (this.correct == undefined) {
       			this.title = this.myCarte.nom;
-      			this.image = (<ElementImage>this.myCarte.listeElements[this.i]).image;
     		} else if (this.correct) {
       			this.viewCtrl.showBackButton(false);
       			this.title = 'Correct !';
-      			this.image = "assets/imgs/correct.jpg";
+      			if (this.myCarte.listeElements[this.i-1].typeElem === 'ElementVraiFaux') this.image = "assets/imgs/correct.jpg";
     		} else { 
       			this.viewCtrl.showBackButton(false);
       			this.title = 'Incorrect !';
-      			this.image = "assets/imgs/incorrect.jpg";
+      			if (this.myCarte.listeElements[this.i-1].typeElem === 'ElementVraiFaux') this.image = "assets/imgs/incorrect.jpg";
     		}
   	}
 
