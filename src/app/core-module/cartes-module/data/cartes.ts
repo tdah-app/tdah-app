@@ -210,9 +210,21 @@ export const CARTES: Carte[] = [
               typeElem: 'ElementImage'
             },
             <ElementImage>{
-              texte: '3 !',
-              bouton: 'Retour à la boîte aux cartes',
-              image: 'assets/imgs/trois.jpg',
+              texte: 'Ton cerveau peut être considéré en deux parties lorsqu\'il s\'agit de traiter les informations visuelles.\nLa partie "logique" ou "verbale", parfois appelée "cerveau gauche", associe un nom à l\'élement perçu après un bref regard.',
+              bouton: 'Et le droit ?',
+              image: 'assets/imgs/cerveau_2_parties.jpg',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: 'Le cerveau droit, au contraire, perçoit les relations spatiales et analyse les signaux non verbaux.',
+              bouton: 'La suite !',
+              image: 'assets/imgs/cerveau_2_parties.jpg',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: 'Quand tu regardes une photo familière, ton cerveau gauche va vite l\'identifier et va se concentrer sur autre chose.\nLorsque la photo est retournée, l\'identification rapide ne fonctionne pas et le cerveau droit intervient afin d\'interpreter les élements de l\'image. Par conséquent, regarder les photos à l\'envers "éveille" l\'artiste en nous !\nTu peux donc entrainer ce côté artistique en retournant, par exemple, les photos et calendriers présents sur ton bureau !',
+              bouton: 'Retour à la boîte aux cartes !',
+              image: 'assets/imgs/cerveau_2_parties.jpg',
               typeElem: 'ElementImage'
             }
         ]
