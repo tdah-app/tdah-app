@@ -10,19 +10,14 @@ import { ElementRadioBouton } from '../../objects/element-radio-bouton';
 export const CARTES: Carte[] = [
 
   	{
-    	nom: 'Carte 1',
+    	nom: 'Utilisation du cerveau',
 		  icon: 'arrow-forward',
 		  iconEtat: 'eye-off',
 		  iconEtatColor: 'danger',
-      messageNotif: 'notif carte 1',
+      messageNotif: '"Quand on est amoureux, 98% de notre cerveau ne fonctionne pas." -Katherine Pancol',
     	id: 0,
     		dim: "Attention",
-    		listeElements: [
-      			<ElementImage>{
-        			texte: 'le cerveau c\'est très important', 
-        			bouton: 'La suite', 
-        			image: 'assets/imgs/goldfish.jpg',
-        			typeElem: 'ElementImage'},            
+    		listeElements: [           
       			<ElementVraiFaux>{
         			bouton: 'vrai faux',
         			texte: 'De manière générale, est-il vrai que nous n\'utilisons que 10% de notre cerveau ?',
@@ -97,7 +92,7 @@ export const CARTES: Carte[] = [
       			<ElementImage>{
         			bouton: 'Retour au menu',
         			texte: 'L\'agenda ou le bloc-note !',
-        			image: 'assets/imgs/goldfish.jpg',
+        			image: 'assets/imgs/calendrier.jpg',
         			typeElem: 'ElementImage'}
     		]
   	},
@@ -231,7 +226,7 @@ export const CARTES: Carte[] = [
       iconEtat: 'eye-off',
       iconEtatColor: 'danger',
       messageNotif: 'La caféine...?',
-      id: 7,
+      id: 8,
         dim: "Mémoire",
         listeElements: [
             <ElementSavaisTuQue>{
@@ -243,7 +238,52 @@ export const CARTES: Carte[] = [
               conseil: 'Préférez une consommation occasionnelle, et en début de journée.',
               typeElem: 'ElementSavaisTuQue'}
         ]
-    }
+    },
+
+    {
+      nom: 'Plus rapide que le TGV',
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'Plus rapide que le TGV ?!',
+      id: 9,
+        dim: "Attention",
+        listeElements: [
+            <ElementVraiFaux>{
+              texte: 'Les informations sont le plus souvent traitées par le biais des images perçues. \nEst-il vrai que le nerf optique transmet des informations au cerveau à une vitesse de 100 à 120 m/s, soit à peu près 400 km/h ?', 
+              bouton: '', 
+              image: 'assets/imgs/nerfOptique.jpg',
+              valeur: false,
+              typeElem: 'ElementVraiFaux'},                 
+            <ElementParent>{
+              texte: 'Théorie !', 
+              bouton: 'Retour à la boite aux cartes !',
+              typeElem: 'ElementParent'}
+            ]
+    },
+
+    {
+      nom: 'La vengeance est un plat que se mange froid.',
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: '"La vengeance est un plat qui se mange froid."',
+      id: 10,
+        dim: "Impulsivité",
+        listeElements: [
+            <ElementRadioBouton>{
+              texte: 'À ton avis, la phrase bien connue "la vengeance est un plat qui se mange froid" signifie : ', 
+              bouton: 'Réponse ?',
+              radioBoutons: ['Qu\'il faut se calculer, et ne pas l\'éxecuter trop rapidement.','Que la vengeance ne laisse qu\'un goût de plat froid en bouche.','Que la vengeance doit être faite le plus rapidement possible.'],
+              reponse: 'Qu\'il faut se calculer, et ne pas l\'éxecuter trop rapidement.',
+              typeElem: 'ElementRadioBouton'},                 
+            <ElementImage>{
+              texte: 'Théorie !', 
+              bouton: 'Retour à la boite aux cartes !',
+              image: 'assets/imgs/couverts.png',
+              typeElem: 'ElementImage'}
+            ]
+    },
 
 ]
 
