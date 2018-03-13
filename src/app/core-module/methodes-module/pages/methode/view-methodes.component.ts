@@ -18,6 +18,7 @@ export class ViewMethodes implements OnInit {
   	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService, private toastsService: ToastsService) {}
   
     	ngOnInit() {
+		// On initialise les méthodes
 		this.methodes = METHODES;      
 	    	this.dataProvider.getData(this.dataProvider.RECEIVED_METHODS).then( receivedMet => {
 			if(receivedMet) {
@@ -29,7 +30,7 @@ export class ViewMethodes implements OnInit {
 				    	this.methodes[i].iconEtat = '';
 			    	});
 			}
-	    	});
+	    	}).catch(console.log.bind(console));
   	}
     
 	//une méthode a été cliquée/sélectionnée

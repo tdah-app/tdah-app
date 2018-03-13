@@ -6,7 +6,7 @@ export class DataService {
 
 	// Constante qui correspondent aux différents tableaux de nombres
 	// de la BD. Il est recommandé d'utiliser ces variables accessible 
-	// en dehors de la classe comme argumetn "key" lors de l'appel des
+	// en dehors de la classe comme argument "key" lors de l'appel des
 	// méthodes getData et addData de manière à éviter de se tromper 
 	// dans l'écriture de la chaine de caractère et d'ajouter des données
 	// avec une mauvaise clé
@@ -40,7 +40,7 @@ export class DataService {
 				} else {
 					return this.storage.set(key, [idCard]);
 				}
-			});
+			}).catch(console.log.bind(console));
 		}
 	}
 

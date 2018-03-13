@@ -62,7 +62,7 @@ export class ViewHomePage implements OnInit, Observer {
                  			}
              			}
        			} 
-     	  	});*/
+     	  	}).catch(console.log.bind(console));*/
     	  	this.cartes = CARTES; 
   	}
 
@@ -74,7 +74,7 @@ export class ViewHomePage implements OnInit, Observer {
       		});
   	}
 
-	// On avance vers la 1er carte si c'est un événement de type click
+	// On avance vers la 1er page de la carte si c'est un événement de type click
 	// on ajoute la carte notifié si c'est un trigger et on programme une novelle notification
 	update(evtType: string, idCard: number) {
 		if(evtType === 'click') {
@@ -88,32 +88,29 @@ export class ViewHomePage implements OnInit, Observer {
 			});   
 		} else if(evtType === 'trigger') {
 			this.dataProvider.addData(idCard, this.dataProvider.RECEIVED_CARDS);
-			this.notificationsService.isNotified().then ( val => {
+			this.notificationsService.isNotified().then( val => {
 				if(val.length == 0) {
-					this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
-						if(receivedCards) {
-							let i = 0;
-							while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
-								i++;
-							}
-							if(i < CARTES.length) {
-								if(CARTES[i].id == idCard) {
-									i++;
-									if(i < CARTES.length) {
-										this.notificationsService.cancelNotif().then( () => {
-											this.notificationsService.sendNotification(CARTES[i].id,
-												this.notificationsService.NOTIFICATIONS_TITLE, 
-												this.notificationsService.NOTIFICATIONS_MESSAGE, 
-												this.notificationsService.NOTIFICATIONS_RATE);
-
-										});
-									}
-								}
-							}
+					return this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS);
+				}
+			}).then( receivedCards => {
+				if(receivedCards) { 
+					let i = 0;
+					while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
+						i++;
+					}
+					if(i < CARTES.length) {
+						i++;
+						if(i < CARTES.length) {
+							return Promise.all([i,this.notificationsService.cancelNotif()]);
 						}
-					});
-				} 
-			});
+					}
+				}
+			}).then( results => {
+				this.notificationsService.sendNotification(CARTES[results[0]].id,
+					this.notificationsService.NOTIFICATIONS_TITLE, 
+					this.notificationsService.NOTIFICATIONS_MESSAGE, 
+					this.notificationsService.NOTIFICATIONS_RATE);
+			}).catch(console.log.bind(console));
 		}
 	}
 

@@ -19,8 +19,8 @@ export class NotificationsService implements Observable {
 	// Liste des objets qui observe cette classe
 	private observers: Observer[] = [];
 	
-	// Référence statique vers l'instance de l'instanciation
-	// de cette classe. Cette instance est unique, en effet c'est un
+	// Référence statique vers l'instance de cette classe. 
+	// Cette instance est unique, en effet c'est un
 	// servce injecté par Angular qui assure l'unicité de l'instance
 	private static instance: NotificationsService = null;
 
@@ -28,13 +28,13 @@ export class NotificationsService implements Observable {
 		NotificationsService.instance = this;
 	}
 
-	// Vérifie si l'application est autorisé à envoyer des notifications
+	// Vérifie si l'application est autorisée à envoyer des notifications
 	checkPermission() {
 		return this.localNotifications.hasPermission();
 	}
 	
 	// Retourne une promesse, lorsque celle ci est résolue retourne un tableau
-	// avec les identifiants des notifications programmés
+	// avec les identifiants des notifications programmées
 	isNotified() {
 		return this.localNotifications.getScheduledIds();
 	}
@@ -45,7 +45,7 @@ export class NotificationsService implements Observable {
 		return this.localNotifications.getTriggeredIds();
 	}
 
-	// Ajoute un écouteur sur l'événement consistant à cliquer sur une notification reçus
+	// Ajoute un écouteur sur l'événement consistant à cliquer sur une notification reçue
 	// Lorsque cette évenement se déclenche les objets qui observent sont notifés
 	listenNotifications() {
 		this.localNotifications.un("click", this.callbackClick);
@@ -54,12 +54,12 @@ export class NotificationsService implements Observable {
 		this.localNotifications.on("click", this.callbackTrigger);
 	}
 
-	// Callback appele lors du déclenchement d'une notification
+	// Callback appelée lors du déclenchement d'une notification
 	private callbackTrigger = function(notification) {
 		NotificationsService.instance.notifyObservers('trigger', notification.id);
 	};
 
-	// Callback appele lors du click sur la notification
+	// Callback appelée lors du click sur la notification
 	private callbackClick = function(notification) {
 		NotificationsService.instance.notifyObservers('click', notification.id);
 	}
@@ -69,8 +69,8 @@ export class NotificationsService implements Observable {
 		return this.localNotifications.cancelAll();
 	}
 
-	// Lance une notification, le paramèter inHours permet d'indiquer dans combien
-	// de temps dois ce lancer la notification
+	// Lance une notification, le paramètre inHours permet d'indiquer dans combien
+	// de temps dois se lancer la notification
 	sendNotification(idCard: number, title: string, text: string, inHours: number) {
 		this.localNotifications.schedule({
 			id: idCard,
@@ -82,15 +82,15 @@ export class NotificationsService implements Observable {
 
 	// Ajoute un objet observateur
 	registerObserver(o: Observer) {
-		// On écoute un composant par conséquent il faut vérifier que plusieur référence vers les composants
-		// ne seront ajouté. En effet, à chaque fois que l'on revient sur la page correspondant au composant 
-		// qui écoute angular va reinstancié le composant avec un nouvelle référence. Hors le service de 
-		// notification est lui un singleton et la liste des objets observer reste fixe et conserve des anciennes
-		// référence vers les anciennes instanciation du composant. Le garbage collector ne peut alors pas détruire
-		// ces composants et on va activer la méthode update à plusieurs reprise. On doit onc veiller à ce qu'une 
-		// seule instance d'un composant puisse obervé. Dans notre cas on à un seul composant observateur ainsi pour
-		// simplifier on regade simplement si n'y a pas déjà d'observateur. Si on avait plusieurrs composant différents
-		// qui voulaient observé il faudrait vérifier qu'on a un seul observateur par composant.
+		// On écoute un composant par conséquent il faut vérifier que plusieurs références vers les composants
+		// ne seront pas ajoutées. En effet, à chaque fois que l'on revient sur la page correspondant au composant 
+		// qui écoute, Angular va reinstancié le composant avec une nouvelle référence. Hors le service de 
+		// notification est lui un singleton et la liste des objets observés reste fixe et conserve des anciennes
+		// références vers les anciennes instanciations du composant. Le garbage collector ne peut alors pas détruire
+		// ces composants et on va activer la méthode update à plusieurs reprise. On doit donc veiller à ce qu'une 
+		// seule instance d'un composant puisse obervée. Dans notre cas on a un seul composant observateur ainsi pour
+		// simplifier on regade simplement si il n'y a pas déjà d'observateur. Si on avait plusieurs composants différents
+		// qui voulaient observés, il faudrait vérifier qu'on a un seul observateur par composant.
 		if(this.observers.length == 0) {
 			this.observers.push(o);
 		}

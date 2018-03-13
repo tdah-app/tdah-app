@@ -46,12 +46,12 @@ export class MyApp{
 				if(!receivedCards) {
 					this.dataService.addData(this.firstCard, this.dataService.RECEIVED_CARDS);
 				}
-			});
+			}).catch(console.log.bind(console));
 			this.dataService.getData(this.dataService.RECEIVED_METHODS).then( receivedMet => {
 					if(!receivedMet) {
 						this.dataService.addData(this.firstMet, this.dataService.RECEIVED_METHODS);
 					}
-			});
+			}).catch(console.log.bind(console));
       			this.splashScreen.hide();
     		});
 	}

@@ -26,6 +26,7 @@ export class ViewListe implements OnInit {
 
 
   	ngOnInit() {
+		// On ajoute les cartes correspondant à la dimension courante
     		for (let i in this.cartes) {
         		if (this.cartes[i].dim == this.dimension) {
             			this.cartesDim.push(this.cartes[i]);
@@ -43,7 +44,7 @@ export class ViewListe implements OnInit {
 					this.cartes[i].iconEtatColor = 'secondary';
 				});
 			}
-		});
+		}).catch(console.log.bind(console));
   	}  
 
 	//une carte a été cliquée/sélectionnée

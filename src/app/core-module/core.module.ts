@@ -47,33 +47,33 @@ export class CoreModule {
 		this.notificationsService.listenNotifications();
 	}
 
-	// On regarde si une notification est déjà pris en charge par le
-	// système et est en attente (prévues ou déclenchées). Si aucune notifications n'est en
-	// attente alors on programme un notification dans un temps
+	// On regarde si une notification est déjà prise en charge par le
+	// système et est en attente (prévue ou déclenchée). Si aucune notifications n'est en
+	// attente alors on programme une notification dans un temps
 	// disponible dans la variable NOTIFICATIONS_RATE
 	private checkScheduled() {
-		this.notificationsService.isNotified().then ( valNot => {
-			if(valNot.length == 0) {
-				this.notificationsService.isTriggered().then( valTrigg => {
-					if(valTrigg.length == 0) {
-						this.dataService.getData(this.dataService.RECEIVED_CARDS).then( receivedCards => {
-							if(receivedCards) {
-								let i = 0;
-								while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
-									i++;
-								}
-								if(i < CARTES.length) {
-									this.notificationsService.sendNotification(CARTES[i].id,
-										this.notificationsService.NOTIFICATIONS_TITLE, 
-										this.notificationsService.NOTIFICATIONS_MESSAGE, 
-										this.notificationsService.NOTIFICATIONS_RATE);			
-								}
-							}
-						});
-					}
-				});
+		this.notificationsService.isNotified().then( valNotif => {
+			if(valNotif.length == 0) {
+				return this.notificationsService.isTriggered(); 
 			} 
-		});
+		}).then( valTrigg => {
+			if(valTrigg.length == 0) {
+				return this.dataService.getData(this.dataService.RECEIVED_CARDS);
+			}			
+		}).then( receivedCards => {
+			if(receivedCards) {
+				let i = 0;
+				while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
+					i++;
+				}
+				if(i < CARTES.length) {
+					this.notificationsService.sendNotification(CARTES[i].id,
+							this.notificationsService.NOTIFICATIONS_TITLE, 
+							this.notificationsService.NOTIFICATIONS_MESSAGE, 
+							this.notificationsService.NOTIFICATIONS_RATE);			
+				}
+			}
+		}).catch(console.log.bind(console));
 	}
 
 	// Affichage d'un alerte
