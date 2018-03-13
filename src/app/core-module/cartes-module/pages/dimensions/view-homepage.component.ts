@@ -89,7 +89,7 @@ export class ViewHomePage implements OnInit, Observer {
 		} else if(evtType === 'trigger') {
 			this.dataProvider.addData(idCard, this.dataProvider.RECEIVED_CARDS);
 			this.notificationsService.isNotified().then( val => {
-				if(val.length == 0) {
+				if(val && val.length == 0) {
 					return this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS);
 				}
 			}).then( receivedCards => {
@@ -104,12 +104,15 @@ export class ViewHomePage implements OnInit, Observer {
 							return Promise.all([i,this.notificationsService.cancelNotif()]);
 						}
 					}
-				}
+				} 
 			}).then( results => {
-				this.notificationsService.sendNotification(CARTES[results[0]].id,
-					this.notificationsService.NOTIFICATIONS_TITLE, 
-					this.notificationsService.NOTIFICATIONS_MESSAGE, 
-					this.notificationsService.NOTIFICATIONS_RATE);
+				if(results) {
+					this.notificationsService.sendNotification(CARTES[results[0]].id,
+						this.notificationsService.NOTIFICATIONS_TITLE, 
+						this.notificationsService.NOTIFICATIONS_MESSAGE, 
+						this.notificationsService.NOTIFICATIONS_RATE);
+
+				}
 			}).catch(console.log.bind(console));
 		}
 	}

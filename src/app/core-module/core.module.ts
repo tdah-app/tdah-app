@@ -53,11 +53,11 @@ export class CoreModule {
 	// disponible dans la variable NOTIFICATIONS_RATE
 	private checkScheduled() {
 		this.notificationsService.isNotified().then( valNotif => {
-			if(valNotif.length == 0) {
+			if(valNotif && valNotif.length == 0) {
 				return this.notificationsService.isTriggered(); 
 			} 
 		}).then( valTrigg => {
-			if(valTrigg.length == 0) {
+			if(valTrigg && valTrigg.length == 0) {
 				return this.dataService.getData(this.dataService.RECEIVED_CARDS);
 			}			
 		}).then( receivedCards => {
