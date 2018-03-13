@@ -62,7 +62,7 @@ export const CARTES: Carte[] = [
       iconEtatColor: 'danger',
       messageNotif: 'La nicotine...?',
       id: 2,
-        dim: "Mémoire",
+        dim: "Régulation des émotions",
         listeElements: [
             <ElementSavaisTuQue>{
               bouton: 'Retour à la boite aux cartes !',
@@ -113,7 +113,7 @@ export const CARTES: Carte[] = [
         listeElements: [
             <ElementVideo>{
               texte: 'Just do it !!',
-              bouton: 'La suite !',
+              bouton: 'Retout à la boite aux cartes !',
               video: 'https://www.youtube.com/embed/ZXsQAXx_ao0',
               typeElem: 'ElementVideo'
             }
@@ -211,8 +211,8 @@ export const CARTES: Carte[] = [
       iconEtat: 'eye-off',
       iconEtatColor: 'danger',
       messageNotif: 'La cocaïne...?',
-      id: 2,
-        dim: "Mémoire",
+      id: 7,
+        dim: "Régulation des émotions",
         listeElements: [
             <ElementSavaisTuQue>{
               bouton: 'Retour à la boite aux cartes !',
@@ -224,6 +224,26 @@ export const CARTES: Carte[] = [
               typeElem: 'ElementSavaisTuQue'}
         ]
     },
+
+    {
+      nom: 'La caféine',
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'La caféine...?',
+      id: 7,
+        dim: "Mémoire",
+        listeElements: [
+            <ElementSavaisTuQue>{
+              bouton: 'Retour à la boite aux cartes !',
+              texte: '',
+              sujet: 'La caféine ',
+              positif: 'augmente la réponse du récepteur de la dopamine, et donc augmente la concentration.',
+              negatif: ' seulement sur le court terme ! Et, de plus, déclenche un stress négatif... ',
+              conseil: 'Préférez une consommation occasionnelle, et en début de journée.',
+              typeElem: 'ElementSavaisTuQue'}
+        ]
+    }
 
 ]
 
