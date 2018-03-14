@@ -8,10 +8,6 @@ import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
 
-import { ViewBasic } from './../basic/view-basic.component';
-import { ViewImageBasic } from './../image-basic/view-image-basic.component';
-import { ViewVideo } from './../video/view-video.component';
-
 @Component({
   selector: 'view-vraifaux',
   templateUrl: 'view-vraifaux.component.html',

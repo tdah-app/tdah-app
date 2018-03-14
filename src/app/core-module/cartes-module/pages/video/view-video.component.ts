@@ -1,18 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
-import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
-import { ElementImage } from './../../../objects/element-image';
 import { ElementVideo } from './../../../objects/element-video';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
 import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
-
-import { ViewBasic } from './../basic/view-basic.component';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewImageBasic } from './../image-basic/view-image-basic.component';
 
 import { SafeResourceUrl, DomSanitizer} from '@angular/platform-browser';
 
@@ -31,7 +25,7 @@ export class ViewVideo implements OnInit {
     url: string;
 
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public dataProvider: DataService, public toastService: ToastsService, private sanitizer: DomSanitizer) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataService, public toastService: ToastsService, private sanitizer: DomSanitizer) {
     		this.myCarte = navParams.get("resultParam");
     		this.i = navParams.get("index");
     	  this.url = (<ElementVideo>this.myCarte.listeElements[this.i]).video;	

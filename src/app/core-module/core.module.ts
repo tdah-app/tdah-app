@@ -10,23 +10,17 @@ import { MethodesModule } from './methodes-module/methodes.module';
 import { NotificationsService } from './notifications-service/notifications.service';
 import { ToastsService } from './toasts-service/toasts.service';
 import { DataService } from './../data-service/data.service';
-import { Calendar } from '@ionic-native/calendar';
-
-import { CalendrierModule } from './calendrier-module/calendrier.module';
 
 @NgModule({
 	imports: [
 		CommonModule,
 	  	CartesModule,
-	  	MethodesModule,
-	  	CalendrierModule
-
+	  	MethodesModule
   	],
  	providers: [
 	  	LocalNotifications,
 	  	NotificationsService,
-	  	ToastsService,
-	  	Calendar
+	  	ToastsService
   	]
 })
 export class CoreModule {
@@ -75,7 +69,7 @@ export class CoreModule {
 				if(i < CARTES.length) {
 					this.notificationsService.sendNotification(CARTES[i].id,
 							this.notificationsService.NOTIFICATIONS_TITLE, 
-							this.notificationsService.NOTIFICATIONS_MESSAGE, 
+							CARTES[i].messageNotif, 
 							this.notificationsService.NOTIFICATIONS_RATE);			
 				}
 			}

@@ -109,7 +109,7 @@ export class ViewHomePage implements OnInit, Observer {
 				if(results) {
 					this.notificationsService.sendNotification(CARTES[results[0]].id,
 						this.notificationsService.NOTIFICATIONS_TITLE, 
-						this.notificationsService.NOTIFICATIONS_MESSAGE, 
+						CARTES[results[0]].messageNotif,
 						this.notificationsService.NOTIFICATIONS_RATE);
 
 				}

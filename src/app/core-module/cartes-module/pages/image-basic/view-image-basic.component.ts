@@ -9,10 +9,6 @@ import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
 
-import { ViewBasic } from './../basic/view-basic.component';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewVideo } from './../video/view-video.component';
-
 @Component({
   selector: 'view-image-basic',
   templateUrl: 'view-image-basic.component.html',

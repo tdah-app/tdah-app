@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Methode } from './../../objects/methode';
-import { ViewImageBasicMethode } from './../image-basic/view-image-basic-methode.component';
 import { ViewHomePage } from './../../../cartes-module/pages/dimensions/view-homepage.component';
-import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
-import { ElementImage } from './../../../objects/element-image';
-import { ElementParent } from './../../../objects/element-parent';
 import { Utils } from './../../utils/utils';
 
 

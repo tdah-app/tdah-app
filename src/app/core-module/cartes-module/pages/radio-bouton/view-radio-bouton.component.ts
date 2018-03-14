@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
@@ -7,10 +7,6 @@ import { ElementRadioBouton } from './../../../objects/element-radio-bouton';
 import { Utils } from './../../utils/utils';
 import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
-
-import { ViewBasic } from './../basic/view-basic.component';
-import { ViewVraiFaux } from './../vrai-faux/view-vraifaux.component';
-import { ViewVideo } from './../video/view-video.component';
 
 @Component({
   selector: 'view-radio-bouton',
@@ -28,7 +24,7 @@ export class ViewRadioBouton implements OnInit {
     correct: boolean = undefined;
   	
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController, public dataProvider: DataService, public toastService: ToastsService, private alertCtrl: AlertController) {
+  	constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataService, public toastService: ToastsService, private alertCtrl: AlertController) {
     		this.myCarte = navParams.get("resultParam");
     		this.i = navParams.get("index");
     		}

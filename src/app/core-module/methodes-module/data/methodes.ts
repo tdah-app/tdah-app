@@ -1,7 +1,6 @@
 import { Methode } from '../objects/methode';
 import { ElementParent } from '../../objects/element-parent';
 import { ElementImage } from '../../objects/element-image';
-import { ElementVideo } from '../../objects/element-video';
 
 export const METHODES: Methode[] = [
   	{

@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Methode } from './../../objects/methode';
-import { ViewBasicMethode } from './../basic/view-basic-methode.component';
 import { ViewHomePage } from './../../../cartes-module/pages/dimensions/view-homepage.component';
-import { ElementSavaisTuQue } from './../../../objects/element-savais-tu-que';
 import { ElementImage } from './../../../objects/element-image';
-import { ElementParent } from './../../../objects/element-parent';
 import { Utils } from './../../utils/utils';
 
 
@@ -22,7 +19,7 @@ export class ViewImageBasicMethode implements OnInit {
   title: string;
   image: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.myMethode = navParams.get("resultParam");
     this.i = navParams.get("index");
     }
