@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ViewHomePage } from './core-module/cartes-module/pages/dimensions/view-homepage.component';
 import { ViewMethodes } from './core-module/methodes-module/pages/methode/view-methodes.component';
+import { ViewCalendrier } from './core-module/calendrier-module/pages/view-calendrier.component';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +25,8 @@ export class MyApp {
     		// used for an example of ngFor and navigation
     		this.pages = [
       			{ title: 'Boîte aux cartes', component: ViewHomePage, icon: 'photos' },
-      			{ title: 'Méthodes', component: ViewMethodes, icon: 'trophy' }
+      			{ title: 'Méthodes', component: ViewMethodes, icon: 'trophy' },
+            { title: 'Calendrier', component: ViewCalendrier, icon: 'trophy'}
     		];
   	}
 
