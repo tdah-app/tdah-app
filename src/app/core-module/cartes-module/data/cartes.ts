@@ -301,25 +301,25 @@ export const CARTES: Carte[] = [
               typeElem: 'ElementParent'
             },
             <ElementImage>{
-              texte: '<B>La procrastination c\'est : </B> \n Commencer un projet en décidant d\'un planning de base. Le premier jour tout va bien ! ',
+              texte: 'La procrastination c\'est : \n Commencer un projet en décidant d\'un planning de base. Le premier jour tout va bien ! ',
               bouton: 'Jours suivants',
               image: 'assets/imgs/procrastination1.png',
               typeElem: 'ElementImage'
             },
             <ElementImage>{
-              texte: '<B>La procrastination c\'est : </B> \n Se rendre compte que l\'on avait finalement pas trop envie de bosser les premiers jours, mais c\'est ok, puisqu\'il nous reste encore pas mal de temps.',
+              texte: 'La procrastination c\'est : \n Se rendre compte que l\'on avait finalement pas trop envie de bosser les premiers jours, mais c\'est ok, puisqu\'il nous reste encore pas mal de temps.',
               bouton: 'Jours suivants',
               image: 'assets/imgs/procrastination2.png',              
               typeElem: 'ElementImage'
             },
             <ElementImage>{
-              texte: '<B>La procrastination c\'est : </B> \n Commencer à stresser et culpabiliser car on a encore rien fait et que l\'on arrive gentiment au bout de l\'échéance (mais ça ne nous aide pas à démarrer...).',
+              texte: 'La procrastination c\'est :  \n Commencer à stresser et culpabiliser car on a encore rien fait et que l\'on arrive gentiment au bout de l\'échéance (mais ça ne nous aide pas à démarrer...).',
               bouton: 'Jours suivants',
               image: 'assets/imgs/procrastination3.png',
               typeElem: 'ElementImage'
             },
             <ElementImage>{
-              texte: '<B>La procrastination c\'est : </B> \n Faire tout le projet à la dernière minute car on n\'a plus le choix !',
+              texte: 'La procrastination c\'est :  \n Faire tout le projet à la dernière minute car on n\'a plus le choix !',
               bouton: 'Pourquoi ?',
               image: 'assets/imgs/procrastination4.png',
               typeElem: 'ElementImage'

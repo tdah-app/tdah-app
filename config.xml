@@ -91,4 +91,5 @@
     <plugin name="cordova-plugin-headercolor" spec="^1.0.0" />
     <engine name="ios" spec="~4.5.4" />
     <plugin name="cordova-plugin-youtube-video-player" spec="^1.0.6" />
+    <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
 </widget>

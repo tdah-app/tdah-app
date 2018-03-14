@@ -10,17 +10,23 @@ import { MethodesModule } from './methodes-module/methodes.module';
 import { NotificationsService } from './notifications-service/notifications.service';
 import { ToastsService } from './toasts-service/toasts.service';
 import { DataService } from './../data-service/data.service';
+import { Calendar } from '@ionic-native/calendar';
+
+import { CalendrierModule } from './calendrier-module/calendrier.module';
 
 @NgModule({
 	imports: [
 		CommonModule,
 	  	CartesModule,
-	  	MethodesModule
+	  	MethodesModule,
+	  	CalendrierModule
+
   	],
  	providers: [
 	  	LocalNotifications,
 	  	NotificationsService,
-	  	ToastsService
+	  	ToastsService,
+	  	Calendar
   	]
 })
 export class CoreModule {
