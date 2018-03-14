@@ -63,7 +63,7 @@ export class Utils {
 			case 'ElementRadioBouton':
 				return ViewRadioBouton;
 			case 'ElementParent':
-				if(carte.listeElements[index-1].typeElem === 'ElementVraiFaux') {
+				if(index>0 && carte.listeElements[index-1].typeElem === 'ElementVraiFaux') {
 					return ViewImageBasic;
 				} else {
 					return ViewBasic;

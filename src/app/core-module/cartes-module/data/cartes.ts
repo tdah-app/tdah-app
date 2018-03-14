@@ -21,7 +21,7 @@ export const CARTES: Carte[] = [
       			<ElementVraiFaux>{
         			bouton: 'vrai faux',
         			texte: 'De manière générale, est-il vrai que nous n\'utilisons que 10% de notre cerveau ?',
-        			valeur: true,
+        			valeur: false,
         			image: 'assets/imgs/cerveau.jpg',
         			typeElem: 'ElementVraiFaux'},
       			<ElementParent>{
@@ -30,6 +30,7 @@ export const CARTES: Carte[] = [
         			typeElem: 'ElementParent'}
       	  	]
   	},
+
   	{
     	nom: 'Le méthylphénidate',
 		  icon: 'arrow-forward',
@@ -283,6 +284,53 @@ export const CARTES: Carte[] = [
               image: 'assets/imgs/couverts.png',
               typeElem: 'ElementImage'}
             ]
+    },
+
+    {
+      nom:'La procrastination',
+      id: 11,
+      icon: 'arrow-forward',
+      iconEtat: 'eye-off',
+      iconEtatColor: 'danger',
+      messageNotif: 'Nous sommes tous des procrastinateurs !',
+      dim: "Planning",
+        listeElements: [
+            <ElementParent>{
+              texte: "La procrastination c\'est : " + '\n\n' + " - Se perdre sur Youtube à regarder des vidéos de chats alors qu\'à la base, on voulait voir un clip musical. \n\n - Décider que, tout à coup, connaître les drapeaux du monde et leur signification sur Wikipédia était devenu indispensable. \n\n - Se demander si trier les livres de sa bibliothèque ou vider la cage de son animal de compagnie n\'étaient pas des prérequis à la révision de son examen.",
+              bouton: 'Mais encore ?',
+              typeElem: 'ElementParent'
+            },
+            <ElementImage>{
+              texte: '<B>La procrastination c\'est : </B> \n Commencer un projet en décidant d\'un planning de base. Le premier jour tout va bien ! ',
+              bouton: 'Jours suivants',
+              image: 'assets/imgs/procrastination1.png',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: '<B>La procrastination c\'est : </B> \n Se rendre compte que l\'on avait finalement pas trop envie de bosser les premiers jours, mais c\'est ok, puisqu\'il nous reste encore pas mal de temps.',
+              bouton: 'Jours suivants',
+              image: 'assets/imgs/procrastination2.png',              
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: '<B>La procrastination c\'est : </B> \n Commencer à stresser et culpabiliser car on a encore rien fait et que l\'on arrive gentiment au bout de l\'échéance (mais ça ne nous aide pas à démarrer...).',
+              bouton: 'Jours suivants',
+              image: 'assets/imgs/procrastination3.png',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: '<B>La procrastination c\'est : </B> \n Faire tout le projet à la dernière minute car on n\'a plus le choix !',
+              bouton: 'Pourquoi ?',
+              image: 'assets/imgs/procrastination4.png',
+              typeElem: 'ElementImage'
+            },
+            <ElementImage>{
+              texte: 'Tout simplement car une partie de notre cerveau va privilégier les activités faciles, rapides, et distrayantes à faire, au détriment de nos décisions rationnelles... Jusqu\'à ce qu\'on se retrouve dans une situation critique !',
+              bouton: 'Retour à la boite aux cartes',
+              image: 'assets/imgs/angeDemon.jpg',
+              typeElem: 'ElementImage'
+            }
+        ]
     },
 
 ]
