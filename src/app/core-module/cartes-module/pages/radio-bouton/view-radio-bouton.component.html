@@ -21,17 +21,17 @@
 
   <ion-card>
     <ion-card-content>
-    <div align="justify">
       {{texte}}
-    </div>
     </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <img src = "{{image}}" > 
+    <ion-list radio-group [(ngModel)]="autoManufacturers">
+      <ion-item *ngFor="let radioBouton of radioBoutons">
+        <ion-label>{{radioBouton}}</ion-label>
+        <ion-radio value="{{radioBouton}}" (ionSelect)="radioBoutonTapped($event, radioBouton)"></ion-radio>
+      </ion-item>
+    </ion-list>
   </ion-card>
 
   <div text-center>
-    <button ion-button (click)="boutonTapped()" round>{{nomBouton}}</button>
+   <button ion-button (click)="boutonTapped()" round>{{nomBouton}}</button>
   </div>
 </ion-content>

@@ -6,7 +6,9 @@ import { ViewHomePage } from './pages/dimensions/view-homepage.component';
 import { ViewListe } from './pages/liste/view-liste.component';
 import { ViewBasic } from './pages/basic/view-basic.component';
 import { ViewImageBasic } from './pages/image-basic/view-image-basic.component';
+import { ViewVideo } from './pages/video/view-video.component';
 import { ViewVraiFaux } from './pages/vrai-faux/view-vraifaux.component';
+import { ViewRadioBouton } from './pages/radio-bouton/view-radio-bouton.component';
 
 @NgModule({
 	imports: [
@@ -18,14 +20,18 @@ import { ViewVraiFaux } from './pages/vrai-faux/view-vraifaux.component';
 	  	ViewListe,
 	  	ViewBasic,
 	  	ViewImageBasic,
-	  	ViewVraiFaux
+	  	ViewVraiFaux,
+	  	ViewVideo,
+	  	ViewRadioBouton
   	],
   	entryComponents: [
 	  	ViewHomePage,
 	 	ViewListe,
 	  	ViewBasic,
 	 	ViewImageBasic,
-	  	ViewVraiFaux
+	  	ViewVraiFaux,
+	  	ViewVideo,
+	  	ViewRadioBouton
   	],	
 })
 export class CartesModule {}
