@@ -26,7 +26,7 @@ import { DataService } from './../data-service/data.service';
 export class CoreModule {
 
 	constructor(private notificationsService: NotificationsService, private alertCtrl: AlertController, private dataService: DataService) {
-		if (this.notificationsService.ENABLE_NOTIFICATION) {
+		if (this.notificationsService.ENABLE_NOTIFICATIONS) {
 			this.checkPermission();
 			this.listenNotifications();
 			this.checkScheduled();

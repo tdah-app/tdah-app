@@ -9,9 +9,9 @@ export class NotificationsService implements Observable {
 
 	// Activation ou non des notifications. Désactiver les notifications permettra
 	// de tester le code dans un navigateur sans passer par la compilation cordova
-	public readonly ENABLE_NOTIFICATION: boolean = false;
+	public readonly ENABLE_NOTIFICATIONS: boolean = false;
 
-	// Fréquence d'envoit des notifications
+	// Fréquence d'envoit des notifications en heure
 	public readonly NOTIFICATIONS_RATE: number = 0.01;
 
 	// Titre standard

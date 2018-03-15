@@ -51,7 +51,7 @@ export class ViewHomePage implements OnInit, Observer {
 
 	// On charge les cartes à l'initialisation du composant
 	ngOnInit() {
-		if (this.notificationsService.ENABLE_NOTIFICATION) {
+		if (this.notificationsService.ENABLE_NOTIFICATIONS) {
 			this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then(receivedCards => {
 				if (receivedCards) {
 					//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
