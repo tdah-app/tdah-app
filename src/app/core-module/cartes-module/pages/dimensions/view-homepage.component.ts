@@ -51,19 +51,22 @@ export class ViewHomePage implements OnInit, Observer {
 
 	// On charge les cartes à l'initialisation du composant
 	ngOnInit() {
-		/*this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
-          		if(receivedCards) {
-             			//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
-             			for (let i in CARTES) {
-                 			//si l'indice de la carte regardée est contenu dans receivedCards : c'est-à-dire si la carte a déjà été reçue...
-                 			if (receivedCards.indexOf(CARTES[i].id) != -1) {
-                     				//... alors on l'ajout à la liste des cartes déverrouillées, qui seront affichées dans le slider
-                     				this.cartes.push(CARTES[i]);
-                 			}
-             			}
-       			} 
-     	  	}).catch(console.log.bind(console));*/
-		this.cartes = CARTES;
+		if (this.notificationsService.ENABLE_NOTIFICATION) {
+			this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then(receivedCards => {
+				if (receivedCards) {
+					//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
+					for (let i in CARTES) {
+						//si l'indice de la carte regardée est contenu dans receivedCards : c'est-à-dire si la carte a déjà été reçue...
+						if (receivedCards.indexOf(CARTES[i].id) != -1) {
+							//... alors on l'ajout à la liste des cartes déverrouillées, qui seront affichées dans le slider
+							this.cartes.push(CARTES[i]);
+						}
+					}
+				}
+			}).catch(console.log.bind(console));
+		} else {
+			this.cartes = CARTES;
+		}
 	}
 
 	//une dimension a été sélectionnée
