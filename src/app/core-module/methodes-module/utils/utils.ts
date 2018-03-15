@@ -24,7 +24,7 @@ export class Utils {
 					Utils.addReceivedMethod(toastService, dataProvider);
 				}
 			}
-		});
+		}).catch(console.log.bind(console));
 	}
 
 	// Opération pour ajouter une méthode
@@ -41,7 +41,7 @@ export class Utils {
 
 				}
 			}
-		});
+		}).catch(console.log.bind(console));
 	}
 
 	// Méthode renvoyant une référence vers le prochain composant d'une carte

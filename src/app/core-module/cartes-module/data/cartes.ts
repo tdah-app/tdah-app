@@ -99,7 +99,7 @@ export const CARTES: Carte[] = [
       <ElementImage>{
         bouton: 'Retour au menu',
         texte: 'L\'agenda ou le bloc-note !',
-        image: 'assets/imgs/calendrier.jpg',
+        image: 'assets/imgs/calendrier.png',
         typeElem: 'ElementImage'
       }
     ]
