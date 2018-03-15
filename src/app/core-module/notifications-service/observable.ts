@@ -6,10 +6,10 @@ import { Observer } from './observer';
 export interface Observable {
 
 	// Méthode pour ajouter un objet qui observe
-	registerObserver(o : Observer);
+	registerObserver(o: Observer);
 
 	// Méthode pout retirer un objet qui observe
-	removeObserver(o : Observer);
+	removeObserver(o: Observer);
 
 	// Méthode pour notifier un changement d'état aux objets observateurs
 	notifyObservers(evtType: string, idCard: number);

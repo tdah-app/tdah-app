@@ -8,29 +8,29 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HeaderColor } from '@ionic-native/header-color';
 
 import { MyApp } from './app.component';
-import { CoreModule } from './core-module/core.module';
+import {  CoreModule } from './core-module/core.module';
 import { DataService } from './data-service/data.service';
 
 @NgModule({
 	declarations: [
-    		MyApp
-  	],
-  	imports: [
-    		CoreModule,
-    		BrowserModule,
-    		IonicModule.forRoot(MyApp),
-    		IonicStorageModule.forRoot()
-  	],
-  	bootstrap: [IonicApp],
-  	entryComponents: [
-    		MyApp
-  	],
-  	providers: [
-    		DataService,
-    		StatusBar,
-    		SplashScreen,
+		MyApp
+	],
+	imports: [
+		CoreModule,
+		BrowserModule,
+		IonicModule.forRoot(MyApp),
+		IonicStorageModule.forRoot()
+	],
+	bootstrap: [IonicApp],
+	entryComponents: [
+		MyApp
+	],
+	providers: [
+		DataService,
+		StatusBar,
+		SplashScreen,
 		HeaderColor,
-    		{provide: ErrorHandler, useClass: IonicErrorHandler}
-  	]
+		{ provide: ErrorHandler, useClass: IonicErrorHandler }
+	]
 })
-export class AppModule {}
+export class AppModule { }

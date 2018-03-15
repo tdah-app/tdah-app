@@ -8,8 +8,8 @@ import { Observer } from './observer';
 export class NotificationsService implements Observable {
 
 	// Fréquence d'envoit des notifications
-	public readonly NOTIFICATIONS_RATE: number = 0.01; 
-	
+	public readonly NOTIFICATIONS_RATE: number = 0.01;
+
 	// Titre standard
 	public readonly NOTIFICATIONS_TITLE: string = 'TDAPP';
 
@@ -18,7 +18,7 @@ export class NotificationsService implements Observable {
 
 	// Liste des objets qui observe cette classe
 	private observers: Observer[] = [];
-	
+
 	// Référence statique vers l'instance de cette classe. 
 	// Cette instance est unique, en effet c'est un
 	// servce injecté par Angular qui assure l'unicité de l'instance
@@ -32,7 +32,7 @@ export class NotificationsService implements Observable {
 	checkPermission() {
 		return this.localNotifications.hasPermission();
 	}
-	
+
 	// Retourne une promesse, lorsque celle ci est résolue retourne un tableau
 	// avec les identifiants des notifications programmées
 	isNotified() {
@@ -55,12 +55,12 @@ export class NotificationsService implements Observable {
 	}
 
 	// Callback appelée lors du déclenchement d'une notification
-	private callbackTrigger = function(notification) {
+	private callbackTrigger = function (notification) {
 		NotificationsService.instance.notifyObservers('trigger', notification.id);
 	};
 
 	// Callback appelée lors du click sur la notification
-	private callbackClick = function(notification) {
+	private callbackClick = function (notification) {
 		NotificationsService.instance.notifyObservers('click', notification.id);
 	}
 
@@ -76,7 +76,7 @@ export class NotificationsService implements Observable {
 			id: idCard,
 			title: title,
 			text: text,
-			at: new Date(new Date().getTime() + (inHours*3600*1000))
+			at: new Date(new Date().getTime() + (inHours * 3600 * 1000))
 		});
 	}
 
@@ -91,7 +91,7 @@ export class NotificationsService implements Observable {
 		// seule instance d'un composant puisse obervée. Dans notre cas on a un seul composant observateur ainsi pour
 		// simplifier on regade simplement si il n'y a pas déjà d'observateur. Si on avait plusieurs composants différents
 		// qui voulaient observés, il faudrait vérifier qu'on a un seul observateur par composant.
-		if(this.observers.length == 0) {
+		if (this.observers.length == 0) {
 			this.observers.push(o);
 		}
 	}
@@ -104,7 +104,7 @@ export class NotificationsService implements Observable {
 
 	// Méthode de notification des objets observateurs
 	notifyObservers(evtType: string, idCard: number) {
-		for(let observer of this.observers) {
+		for (let observer of this.observers) {
 			observer.update(evtType, idCard);
 		}
 	}

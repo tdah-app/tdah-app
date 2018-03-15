@@ -9,17 +9,17 @@ import { ViewImageBasicMethode } from './pages/image-basic/view-image-basic-meth
 @NgModule({
 	imports: [
 		CommonModule,
-	  	IonicPageModule.forChild(ViewMethodes)
-  	],
-  	declarations: [
-	  	ViewMethodes,
-	  	ViewBasicMethode,
-    	ViewImageBasicMethode
-  	],
-  	entryComponents: [
-	  	ViewMethodes,
-	  	ViewBasicMethode,
-    	ViewImageBasicMethode
-  	],	
+		IonicPageModule.forChild(ViewMethodes)
+	],
+	declarations: [
+		ViewMethodes,
+		ViewBasicMethode,
+		ViewImageBasicMethode
+	],
+	entryComponents: [
+		ViewMethodes,
+		ViewBasicMethode,
+		ViewImageBasicMethode
+	],
 })
-export class MethodesModule {}
+export class MethodesModule { }

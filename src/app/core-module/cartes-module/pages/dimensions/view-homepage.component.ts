@@ -11,16 +11,16 @@ import { Observer } from '../../../notifications-service/observer';
 import { NotificationsService } from './../../../notifications-service/notifications.service';
 
 @Component({
-  selector: 'view-homepage',
-  templateUrl: 'view-homepage.component.html',
+	selector: 'view-homepage',
+	templateUrl: 'view-homepage.component.html',
 })
 export class ViewHomePage implements OnInit, Observer {
 
 	private cartes: Carte[];
 	private dimensions: any[];
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService, private notificationsService: NotificationsService) {
-		
+	constructor(public navCtrl: NavController, public navParams: NavParams, private dataProvider: DataService, private notificationsService: NotificationsService) {
+
 		notificationsService.registerObserver(this);
 
 		this.cartes = new Array(0);
@@ -47,10 +47,10 @@ export class ViewHomePage implements OnInit, Observer {
 			}
 		];
 
-  	}
+	}
 
 	// On charge les cartes à l'initialisation du composant
-  	ngOnInit() {
+	ngOnInit() {
 		/*this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS).then( receivedCards => {
           		if(receivedCards) {
              			//on parcourt la liste de cartes du fichier cartes.ts (constante : liste de cartes)
@@ -63,52 +63,52 @@ export class ViewHomePage implements OnInit, Observer {
              			}
        			} 
      	  	}).catch(console.log.bind(console));*/
-    	  	this.cartes = CARTES; 
-  	}
+		this.cartes = CARTES;
+	}
 
 	//une dimension a été sélectionnée
- 	dimensionTapped(event, dimensionName: string) {
-      		this.navCtrl.push(ViewListe, {
-        		dimension: dimensionName,
-        		cartes: this.cartes
-      		});
-  	}
+	dimensionTapped(event, dimensionName: string) {
+		this.navCtrl.push(ViewListe, {
+			dimension: dimensionName,
+			cartes: this.cartes
+		});
+	}
 
 	// On avance vers la 1er page de la carte si c'est un événement de type click
 	// on ajoute la carte notifié si c'est un trigger et on programme une novelle notification
 	update(evtType: string, idCard: number) {
-		if(evtType === 'click') {
+		if (evtType === 'click') {
 			let i = 0;
-			while(CARTES[i].id != idCard) {
+			while (CARTES[i].id != idCard) {
 				i++;
 			}
-			this.navCtrl.push(Utils.getNextPage(CARTES[i], 0) , {
+			this.navCtrl.push(Utils.getNextPage(CARTES[i], 0), {
 				resultParam: CARTES[i],
 				index: 0,
-			});   
-		} else if(evtType === 'trigger') {
+			});
+		} else if (evtType === 'trigger') {
 			this.dataProvider.addData(idCard, this.dataProvider.RECEIVED_CARDS);
-			this.notificationsService.isNotified().then( val => {
-				if(val && val.length == 0) {
+			this.notificationsService.isNotified().then(val => {
+				if (val && val.length == 0) {
 					return this.dataProvider.getData(this.dataProvider.RECEIVED_CARDS);
 				}
-			}).then( receivedCards => {
-				if(receivedCards) { 
+			}).then(receivedCards => {
+				if (receivedCards) {
 					let i = 0;
-					while(i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
+					while (i < CARTES.length && receivedCards.indexOf(CARTES[i].id) != -1) {
 						i++;
 					}
-					if(i < CARTES.length) {
+					if (i < CARTES.length) {
 						i++;
-						if(i < CARTES.length) {
-							return Promise.all([i,this.notificationsService.cancelNotif()]);
+						if (i < CARTES.length) {
+							return Promise.all([i, this.notificationsService.cancelNotif()]);
 						}
 					}
-				} 
-			}).then( results => {
-				if(results) {
+				}
+			}).then(results => {
+				if (results) {
 					this.notificationsService.sendNotification(CARTES[results[0]].id,
-						this.notificationsService.NOTIFICATIONS_TITLE, 
+						this.notificationsService.NOTIFICATIONS_TITLE,
 						CARTES[results[0]].messageNotif,
 						this.notificationsService.NOTIFICATIONS_RATE);
 

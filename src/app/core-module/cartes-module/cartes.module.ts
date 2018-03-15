@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicPageModule } from 'ionic-angular';
 
-import { ViewHomePage } from './pages/dimensions/view-homepage.component';
+import {  ViewHomePage } from './pages/dimensions/view-homepage.component';
 import { ViewListe } from './pages/liste/view-liste.component';
 import { ViewBasic } from './pages/basic/view-basic.component';
 import { ViewImageBasic } from './pages/image-basic/view-image-basic.component';
@@ -13,25 +13,25 @@ import { ViewRadioBouton } from './pages/radio-bouton/view-radio-bouton.componen
 @NgModule({
 	imports: [
 		CommonModule,
-	  	IonicPageModule.forChild(ViewHomePage)
-  	],
-  	declarations: [
-	  	ViewHomePage,
-	  	ViewListe,
-	  	ViewBasic,
-	  	ViewImageBasic,
-	  	ViewVraiFaux,
-	  	ViewVideo,
-	  	ViewRadioBouton
-  	],
-  	entryComponents: [
-	  	ViewHomePage,
-	 	ViewListe,
-	  	ViewBasic,
-	 	ViewImageBasic,
-	  	ViewVraiFaux,
-	  	ViewVideo,
-	  	ViewRadioBouton
-  	],	
+		IonicPageModule.forChild(ViewHomePage)
+	],
+	declarations: [
+		ViewHomePage,
+		ViewListe,
+		ViewBasic,
+		ViewImageBasic,
+		ViewVraiFaux,
+		ViewVideo,
+		ViewRadioBouton
+	],
+	entryComponents: [
+		ViewHomePage,
+		ViewListe,
+		ViewBasic,
+		ViewImageBasic,
+		ViewVraiFaux,
+		ViewVideo,
+		ViewRadioBouton
+	],
 })
-export class CartesModule {}
+export class CartesModule { }

@@ -17,12 +17,12 @@ export class DataService {
 
 	private keys: string[] = [this.RECEIVED_CARDS, this.READ_CARDS, this.RECEIVED_METHODS, this.READ_METHODS];
 
-	constructor(private storage: Storage) {}
+	constructor(private storage: Storage) { }
 
 	// Méthode permettant de récupérer les données du tableau identifié
 	// par la chaîne de caractères passée en paramètre
 	getData(key: string) {
-		if(this.keys.indexOf(key) != -1 ) {
+		if (this.keys.indexOf(key) != -1) {
 			return this.storage.get(key);
 		}
 	}
@@ -30,10 +30,10 @@ export class DataService {
 	// Méthode permettant d'ajouter un nombre au tableau identifié
 	// par la chaîne de caractères passée en paramètre
 	addData(idCard: number, key: string) {
-		if(this.keys.indexOf(key) != -1) {
+		if (this.keys.indexOf(key) != -1) {
 			return this.getData(key).then(result => {
-				if(result) {
-					if(result.indexOf(idCard) == -1) {
+				if (result) {
+					if (result.indexOf(idCard) == -1) {
 						result.push(idCard);
 						return this.storage.set(key, result);
 					}
