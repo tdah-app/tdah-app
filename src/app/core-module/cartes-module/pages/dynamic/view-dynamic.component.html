@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <!-- <ion-title>{{myCarte.dim}}</ion-title> --> 
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+  <div class="cardTitle">
+    <ion-card>
+      <ion-card-content text-wrap>
+        <div align="center">
+          <p>{{textCard}}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="t">
+    <div class="wrap" (click)="click_triangle(0)" (touchstart)="touch_triangle(0)">
+      <div class="triangle"></div>
+      <div class="mask"></div>
+    </div>
+    <div class="wrap" (click)="click_triangle(1)" (touchstart)="touch_triangle(1)">
+      <div class="triangle"></div>
+      <div class="mask"></div>
+    </div>
+    <div class="wrap" (click)="click_triangle(2)" (touchstart)="touch_triangle(2)">
+      <div class="triangle"></div>
+      <div class="mask"></div>
+    </div>
+    <div class="wrap" (click)="click_triangle(3)" (touchstart)="touch_triangle(3)">
+      <div class="triangle"></div>
+      <div class="mask"></div>
+    </div>
+    <div class="wrap" (click)="click_triangle(4)" (touchstart)="touch_triangle(4)">
+      <div class="triangle"></div>
+      <div class="mask"></div>
+    </div>
+    <div class="wrap" (click)="click_triangle(5)" (touchstart)="touch_triangle(5)">
+      <div class="triangle"></div>
+      <div class="mask"></div>
+    </div>
+  </div>
+</ion-content>

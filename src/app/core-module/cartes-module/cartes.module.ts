@@ -9,6 +9,7 @@ import { ViewImageBasic } from './pages/image-basic/view-image-basic.component';
 import { ViewVideo } from './pages/video/view-video.component';
 import { ViewVraiFaux } from './pages/vrai-faux/view-vraifaux.component';
 import { ViewRadioBouton } from './pages/radio-bouton/view-radio-bouton.component';
+import { ViewDynamic } from './pages/dynamic/view-dynamic.component';
 
 @NgModule({
 	imports: [
@@ -22,7 +23,8 @@ import { ViewRadioBouton } from './pages/radio-bouton/view-radio-bouton.componen
 		ViewImageBasic,
 		ViewVraiFaux,
 		ViewVideo,
-		ViewRadioBouton
+		ViewRadioBouton,
+		ViewDynamic
 	],
 	entryComponents: [
 		ViewHomePage,
@@ -31,7 +33,8 @@ import { ViewRadioBouton } from './pages/radio-bouton/view-radio-bouton.componen
 		ViewImageBasic,
 		ViewVraiFaux,
 		ViewVideo,
-		ViewRadioBouton
+		ViewRadioBouton,
+		ViewDynamic
 	],
 })
 export class CartesModule { }

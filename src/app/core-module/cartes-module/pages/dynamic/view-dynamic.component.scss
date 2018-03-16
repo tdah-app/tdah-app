@@ -1,0 +1,100 @@
+.no-scroll .scroll-content{
+    overflow: hidden;
+}
+
+.cardTitle {
+    position: relative;
+    z-index: 1000;
+    padding-bottom: 10px;
+}
+
+.t {
+    z-index: -1;
+}
+
+.t div{
+    position:absolute;
+    top:1px; left:1px; 
+    
+    transform-origin:0 0;
+    -ms-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    
+    transition:all 1s;
+    -webkit-transition:all 1s;
+    -moz-transition:all 1s;
+}
+
+.t .wrap{
+    top:50%; left:50%;
+
+    -ms-transform: skewX(30deg);
+    -webkit-transform: skewX(30deg);
+    transform: skewX(30deg);
+}
+
+.t .wrap .triangle {
+    position:relative;
+    width: 194px;
+    height: 173px;
+    background-color: #70dd95;
+    cursor:pointer;
+    z-index:1
+}
+.t .wrap .mask{
+    width:100%;
+    height:115.5%;
+    background-color: #fff;
+    left:100%;
+    left: 100%;
+    z-index:2;
+    
+    -ms-transform: skewX(-30deg) rotate(30deg);
+    -webkit-transform: skewX(-30deg) rotate(30deg);
+    transform: skewX(-30deg) rotate(30deg);
+} 
+
+.t .wrap .triangle:hover, .t .wrap .triangle:active{
+    background-color: #59B077;
+    
+    transform:  translate(10%, 10%);
+    -webkit-transform: translate(10%, 10%);
+    -moz-transform: translate(10%, 10%);
+}
+
+.t .triangle:hover + .mask, .t .triangle:active + .mask{
+    -ms-transform: skewX(-30deg) rotate(30deg) translate(17.5%, 0);
+    -webkit-transform: skewX(-30deg) rotate(30deg) translate(17.5%, 0);
+    transform: skewX(-30deg) rotate(30deg) translate(17.5%, 0);
+}
+
+.t .wrap .triangle:hover .cardTitle {
+    color: #59B077;
+}
+
+.t > div:nth-child(2){
+    -ms-transform: rotate(60deg) skewX(30deg);
+    -webkit-transform: rotate(60deg) skewX(30deg);
+    transform: rotate(60deg) skewX(30deg);
+}
+.t > div:nth-child(3){
+    -ms-transform: rotate(120deg) skewX(30deg);
+    -webkit-transform: rotate(120deg) skewX(30deg);
+    transform: rotate(120deg) skewX(30deg);
+}
+
+.t > div:nth-child(4){
+    -ms-transform: rotate(-60deg) skewX(30deg);
+    -webkit-transform: rotate(-60deg) skewX(30deg);
+    transform: rotate(-60deg) skewX(30deg);
+}
+.t > div:nth-child(5){
+    -ms-transform: rotate(-120deg) skewX(30deg);
+    -webkit-transform: rotate(-120deg) skewX(30deg);
+    transform: rotate(-120deg) skewX(30deg);
+}
+.t > div:nth-child(6){
+    -ms-transform: rotate(-180deg) skewX(30deg);
+    -webkit-transform: rotate(-180deg) skewX(30deg);
+    transform: rotate(-180deg) skewX(30deg);
+}

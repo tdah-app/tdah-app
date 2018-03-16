@@ -6,7 +6,7 @@ import {  DataService } from './../../../data-service/data.service';
 import { ToastsService } from './../../toasts-service/toasts.service';
 import { ViewTimer } from '../pages/timer/view-timer.component';
 
-export class Utils {
+export class UtilsMet {
 
 	// Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
 	// Regarde si on débloque une nouvelle méthode et ajoute si oui
@@ -16,13 +16,13 @@ export class Utils {
 				if (readCards.indexOf(myMethod.id) == -1) {
 					dataProvider.addData(myMethod.id, dataProvider.READ_CARDS);
 					if ((readCards.length + 1) % Methode.DEBLOCK_MET == 0) {
-						Utils.addReceivedMethod(toastService, dataProvider);
+						UtilsMet.addReceivedMethod(toastService, dataProvider);
 					}
 				}
 			} else {
 				dataProvider.addData(myMethod.id, dataProvider.READ_CARDS);
 				if (Methode.DEBLOCK_MET == 1) {
-					Utils.addReceivedMethod(toastService, dataProvider);
+					UtilsMet.addReceivedMethod(toastService, dataProvider);
 				}
 			}
 		}).catch(console.log.bind(console));

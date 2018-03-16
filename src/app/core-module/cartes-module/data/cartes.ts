@@ -5,7 +5,7 @@ import { ElementSavaisTuQue } from '../../objects/element-savais-tu-que';
 import { ElementImage } from '../../objects/element-image';
 import { ElementVideo } from '../../objects/element-video';
 import { ElementRadioBouton } from '../../objects/element-radio-bouton';
-
+import { ElementDynamic } from '../objects/element-dynamic';
 
 export const CARTES: Carte[] = [
 
@@ -17,6 +17,7 @@ export const CARTES: Carte[] = [
     messageNotif: '"Quand on est amoureux, 98% de notre cerveau ne fonctionne pas." -Katherine Pancol',
     id: 0,
     dim: "Attention",
+    isDynamic: false,
     listeElements: [
       <ElementVraiFaux>{
         bouton: 'vrai faux',
@@ -41,6 +42,7 @@ export const CARTES: Carte[] = [
     messageNotif: 'Le méthylphénidate...?',
     id: 1,
     dim: "Mémoire",
+    isDynamic: false,
     listeElements: [
       <ElementSavaisTuQue>{
         bouton: 'Retour à la boite aux cartes !',
@@ -62,6 +64,7 @@ export const CARTES: Carte[] = [
     messageNotif: 'La nicotine...?',
     id: 2,
     dim: "Régulation des émotions",
+    isDynamic: false,
     listeElements: [
       <ElementSavaisTuQue>{
         bouton: 'Retour à la boite aux cartes !',
@@ -77,12 +80,13 @@ export const CARTES: Carte[] = [
 
   {
     nom: 'Plus organisé qu\'un poisson rouge ?',
-    id: 3,
     icon: 'arrow-forward',
     iconEtat: 'eye-off',
     iconEtatColor: 'danger',
     messageNotif: 'Plus organisé qu\'un poisson rouge ?',
+    id: 3,
     dim: "Mémoire",
+    isDynamic: false,
     listeElements: [
       <ElementImage>{
         bouton: 'La suite !',
@@ -107,12 +111,13 @@ export const CARTES: Carte[] = [
 
   {
     nom: 'Un peu de motivation ?',
-    id: 4,
     icon: 'arrow-forward',
     iconEtat: 'eye-off',
     iconEtatColor: 'danger',
     messageNotif: 'Un peu de motivation ?',
+    id: 4,
     dim: "Régulation des émotions",
+    isDynamic: false,
     listeElements: [
       <ElementVideo>{
         texte: 'Just do it !!',
@@ -125,12 +130,13 @@ export const CARTES: Carte[] = [
 
   {
     nom: 'Jeu de la liste de courses',
-    id: 5,
     icon: 'arrow-forward',
     iconEtat: 'eye-off',
     iconEtatColor: 'danger',
     messageNotif: 'Le jeu de la liste de courses',
+    id: 5,
     dim: "Mémoire",
+    isDynamic: false,
     listeElements: [
       <ElementImage>{
         texte: 'Observe attentivement cette liste...',
@@ -162,12 +168,13 @@ export const CARTES: Carte[] = [
 
   {
     nom: 'C\'est le monde à l\'envers !',
-    id: 6,
     icon: 'arrow-forward',
     iconEtat: 'eye-off',
     iconEtatColor: 'danger',
     messageNotif: 'C\'est le monde à l\'envers ?',
+    id: 6,
     dim: "Attention",
+    isDynamic: false,
     listeElements: [
       <ElementImage>{
         texte: 'Reconnais-tu cette personne ?',
@@ -216,6 +223,7 @@ export const CARTES: Carte[] = [
     messageNotif: 'La cocaïne...?',
     id: 7,
     dim: "Régulation des émotions",
+    isDynamic: false,
     listeElements: [
       <ElementSavaisTuQue>{
         bouton: 'Retour à la boite aux cartes !',
@@ -237,6 +245,7 @@ export const CARTES: Carte[] = [
     messageNotif: 'La caféine...?',
     id: 8,
     dim: "Mémoire",
+    isDynamic: false,
     listeElements: [
       <ElementSavaisTuQue>{
         bouton: 'Retour à la boite aux cartes !',
@@ -258,6 +267,7 @@ export const CARTES: Carte[] = [
     messageNotif: 'Plus rapide que le TGV ?!',
     id: 9,
     dim: "Attention",
+    isDynamic: false,
     listeElements: [
       <ElementVraiFaux>{
         texte: 'Les informations sont le plus souvent traitées par le biais des images perçues. \nEst-il vrai que le nerf optique transmet des informations au cerveau à une vitesse de 100 à 120 m/s, soit à peu près 400 km/h ?',
@@ -282,6 +292,7 @@ export const CARTES: Carte[] = [
     messageNotif: '"La vengeance est un plat qui se mange froid."',
     id: 10,
     dim: "Impulsivité",
+    isDynamic: false,
     listeElements: [
       <ElementRadioBouton>{
         texte: 'À ton avis, la phrase bien connue "la vengeance est un plat qui se mange froid" signifie : ',
@@ -301,12 +312,13 @@ export const CARTES: Carte[] = [
 
   {
     nom: 'La procrastination',
-    id: 11,
     icon: 'arrow-forward',
     iconEtat: 'eye-off',
     iconEtatColor: 'danger',
     messageNotif: 'Nous sommes tous des procrastinateurs !',
+    id: 11,
     dim: "Planning",
+    isDynamic: false,
     listeElements: [
       <ElementParent>{
         texte: "La procrastination c\'est : " + '\n\n' + " - Se perdre sur Youtube à regarder des vidéos de chats alors qu\'à la base, on voulait voir un clip musical. \n\n - Décider que, tout à coup, connaître les drapeaux du monde et leur signification sur Wikipédia était devenu indispensable. \n\n - Se demander si trier les livres de sa bibliothèque ou vider la cage de son animal de compagnie n\'étaient pas des prérequis à la révision de son examen.",
@@ -345,6 +357,119 @@ export const CARTES: Carte[] = [
       }
     ]
   },
+
+  {
+    nom: 'Carte Dynamique --> Test',
+    icon: 'arrow-forward',
+    iconEtat: 'eye-off',
+    iconEtatColor: 'danger',
+    messageNotif: 'Carte Dynamique',
+    id: 12,
+    dim: "Attention",
+    isDynamic: true,
+    listeElements: [
+      <ElementDynamic>{
+        texte: '',
+        bouton: '',
+        typeElem: 'ElementDynamic',
+        listeElements: [
+          [
+            <ElementParent>{
+              texte: 'Thématique 1 - Page 1',
+              bouton: 'Page 2',
+              typeElem: 'ElementParent'
+            },
+            <ElementImage>{
+              texte: 'Thématique 1 - Page 2',
+              bouton: 'Retour à la boite aux cartes',
+              image: 'assets/imgs/angeDemon.jpg',
+              typeElem: 'ElementImage'
+            }
+          ],
+          [
+            <ElementVraiFaux>{
+              texte: 'Les informations sont le plus souvent traitées par le biais des images perçues. \nEst-il vrai que le nerf optique transmet des informations au cerveau à une vitesse de 100 à 120 m/s, soit à peu près 400 km/h ?',
+              bouton: '',
+              image: 'assets/imgs/nerfOptique.jpg',
+              valeur: false,
+              typeElem: 'ElementVraiFaux'
+            },
+            <ElementParent>{
+              texte: 'Théorie !',
+              bouton: 'Retour à la boite aux cartes !',
+              typeElem: 'ElementParent'
+            },
+          ],
+          [
+            <ElementRadioBouton>{
+              texte: 'À ton avis, la phrase bien connue "la vengeance est un plat qui se mange froid" signifie : ',
+              bouton: 'Réponse ?',
+              radioBoutons: ['Qu\'il faut se calculer, et ne pas l\'éxecuter trop rapidement.', 'Que la vengeance ne laisse qu\'un goût de plat froid en bouche.', 'Que la vengeance doit être faite le plus rapidement possible.'],
+              reponse: 'Qu\'il faut se calculer, et ne pas l\'éxecuter trop rapidement.',
+              typeElem: 'ElementRadioBouton'
+            },
+            <ElementImage>{
+              texte: 'Théorie !',
+              bouton: 'Retour à la boite aux cartes !',
+              image: 'assets/imgs/couverts.png',
+              typeElem: 'ElementImage'
+            }
+          ],
+          [
+            <ElementParent>{
+              texte: 'Thématique 4 - Page 1',
+              bouton: 'Page 2',
+              typeElem: 'ElementParent'
+            },
+            <ElementParent>{
+              texte: 'Thématique 4 - Page 2',
+              bouton: 'Retour à la boite aux cartes',
+              typeElem: 'ElementParent'
+            },
+            <ElementVideo>{
+              texte: 'Just do it !!',
+              bouton: 'Retout à la boite aux cartes !',
+              video: 'https://www.youtube.com/embed/ZXsQAXx_ao0',
+              typeElem: 'ElementVideo'
+            }
+          ],
+          [
+            <ElementParent>{
+              texte: 'Thématique 5 - Page 1',
+              bouton: 'Page 2',
+              typeElem: 'ElementParent'
+            },
+            <ElementParent>{
+              texte: 'Thématique 5 - Page 2',
+              bouton: 'Retour à la boite aux cartes',
+              typeElem: 'ElementParent'
+            },
+            <ElementSavaisTuQue>{
+              bouton: 'Retour à la boite aux cartes !',
+              texte: '',
+              sujet: 'La caféine ',
+              positif: 'augmente la réponse du récepteur de la dopamine, et donc augmente la concentration.',
+              negatif: ' seulement sur le court terme ! Et, de plus, déclenche un stress négatif... ',
+              conseil: 'Préférez une consommation occasionnelle, et en début de journée.',
+              typeElem: 'ElementSavaisTuQue'
+            }
+          ],
+          [
+            <ElementParent>{
+              texte: 'Thématique 6',
+              bouton: 'Page 2',
+              typeElem: 'ElementParent'
+            },
+            <ElementParent>{
+              texte: 'Thématique 6 - Page 2',
+              bouton: 'Retour à la boite aux cartes',
+              typeElem: 'ElementParent'
+            }
+          ]
+        ]
+      }
+    ]
+  }
 
 ]
 

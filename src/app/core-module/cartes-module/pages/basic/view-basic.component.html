@@ -24,21 +24,21 @@
     <ion-card-content text-wrap>
       <div align="justify">
         <p>
-          <B>{{myCarte.listeElements[i].sujet}}</B>
+          <B>{{sujet}}</B>
         </p>
         <p>
-          <FONT color="#00BA00">{{myCarte.listeElements[i].positif}}</FONT>
+          <FONT color="#00BA00">{{positif}}</FONT>
         </p>
         <p>
           <br/> {{texte}} {{valeur_mais}}
         </p>
         <p>
-          <FONT color="#FF0000">{{myCarte.listeElements[i].negatif}}</FONT>
+          <FONT color="#FF0000">{{negatif}}</FONT>
         </p>
         <p>
           <br/> {{valeur_conseil}}
           <I>
-            <FONT color="#383838">{{myCarte.listeElements[i].conseil}}</FONT>
+            <FONT color="#383838">{{conseil}}</FONT>
           </I>
         </p>
       </div>
@@ -46,6 +46,6 @@
   </ion-card>
 
   <div text-center>
-    <button ion-button (click)="boutonTapped()" round>{{myCarte.listeElements[i].bouton}}</button>
+    <button ion-button (click)="boutonTapped()" round>{{bouton}}</button>
   </div>
 </ion-content>

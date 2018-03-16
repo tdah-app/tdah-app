@@ -5,7 +5,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { Carte } from '../../objects/carte';
 import { CARTES } from '../../data/cartes';
 import { ViewListe } from './../liste/view-liste.component';
-import { Utils } from './../../utils/utils';
+import { UtilsCards } from './../../utils/utils-cards';
 import { DataService } from '../../../../data-service/data.service';
 import { Observer } from '../../../notifications-service/observer';
 import { NotificationsService } from './../../../notifications-service/notifications.service';
@@ -85,7 +85,7 @@ export class ViewHomePage implements OnInit, Observer {
 			while (CARTES[i].id != idCard) {
 				i++;
 			}
-			this.navCtrl.push(Utils.getNextPage(CARTES[i], 0), {
+			this.navCtrl.push(UtilsCards.getNextPage(CARTES[i], 0), {
 				resultParam: CARTES[i],
 				index: 0,
 			});

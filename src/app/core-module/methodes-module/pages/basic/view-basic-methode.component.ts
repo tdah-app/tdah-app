@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Methode } from './../../objects/methode';
 import { ViewHomePage } from './../../../cartes-module/pages/dimensions/view-homepage.component';
-import { Utils } from './../../utils/utils';
+import { UtilsMet } from './../../utils/utils-met';
 
 
 @Component({
@@ -31,7 +31,7 @@ export class ViewBasicMethode implements OnInit {
     if (this.i < this.myMethode.listeElements.length - 1) {
       this.i = this.i + 1;
 
-      this.navCtrl.push(Utils.getNextPage(this.myMethode, this.i), {
+      this.navCtrl.push(UtilsMet.getNextPage(this.myMethode, this.i), {
         resultParam: this.myMethode,
         index: this.i
       });

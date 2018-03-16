@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Carte } from './../../objects/carte';
-import { Utils } from './../../utils/utils';
+import { UtilsCards } from './../../utils/utils-cards';
 import { DataService } from '../../../../data-service/data.service';
 
 
@@ -11,7 +11,6 @@ import { DataService } from '../../../../data-service/data.service';
 	templateUrl: 'view-liste.component.html',
 })
 export class ViewListe implements OnInit {
-
 
 	cartes: Carte[];
 	cartesDim: Carte[];
@@ -49,7 +48,7 @@ export class ViewListe implements OnInit {
 
 	//une carte a été cliquée/sélectionnée
 	carteTapped(event, carte) {
-		this.navCtrl.push(Utils.getNextPage(carte, 0), {
+		this.navCtrl.push(UtilsCards.getNextPage(carte, 0, -1), {
 			resultParam: carte,
 			index: 0
 		});

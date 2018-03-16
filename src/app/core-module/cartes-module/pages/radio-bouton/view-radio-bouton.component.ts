@@ -4,9 +4,10 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Carte } from './../../objects/carte';
 import { ViewHomePage } from './../dimensions/view-homepage.component';
 import { ElementRadioBouton } from './../../../objects/element-radio-bouton';
-import { Utils } from './../../utils/utils';
-import {  DataService } from './../../../../data-service/data.service';
+import { UtilsCards } from './../../utils/utils-cards';
+import { DataService } from './../../../../data-service/data.service';
 import { ToastsService } from './../../../toasts-service/toasts.service';
+import { ElementDynamic } from '../../objects/element-dynamic';
 
 @Component({
 	selector: 'view-radio-bouton',
@@ -22,26 +23,39 @@ export class ViewRadioBouton implements OnInit {
 	radioBoutons: string[];
 	selectedRadioBouton: string = undefined;
 	correct: boolean = undefined;
-
+	numCard: number;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public dataProvider: DataService, public toastService: ToastsService, private alertCtrl: AlertController) {
 		this.myCarte = navParams.get("resultParam");
 		this.i = navParams.get("index");
+		if (this.myCarte.isDynamic) {
+			this.numCard = navParams.get('numCard');
+		}
 	}
 
 	ngOnInit() {
-		if (this.myCarte.listeElements.length != 0)
-			this.nomBouton = this.myCarte.listeElements[this.i].bouton;
-		else this.nomBouton = 'Retour au menu';
-		this.radioBoutons = (<ElementRadioBouton>this.myCarte.listeElements[this.i]).radioBoutons;
-		this.texte = this.myCarte.listeElements[this.i].texte;
-		this.title = this.myCarte.nom;
-
+		if (this.myCarte.isDynamic) {
+			this.nomBouton = (<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[this.numCard][this.i].bouton;
+			this.texte = (<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[this.numCard][this.i].texte;
+			this.radioBoutons = (<ElementRadioBouton>((<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[this.numCard][this.i])).radioBoutons;
+			this.title = this.myCarte.nom;
+		} else {
+			if (this.myCarte.listeElements.length != 0)
+				this.nomBouton = this.myCarte.listeElements[this.i].bouton;
+			else this.nomBouton = 'Retour au menu';
+			this.radioBoutons = (<ElementRadioBouton>this.myCarte.listeElements[this.i]).radioBoutons;
+			this.texte = this.myCarte.listeElements[this.i].texte;
+			this.title = this.myCarte.nom;
+		}
 	}
 
 	radioBoutonTapped(event, radioBouton) {
 		this.selectedRadioBouton = radioBouton;
-		this.correct = (radioBouton === (<ElementRadioBouton>this.myCarte.listeElements[this.i]).reponse);
+		if (this.myCarte.isDynamic) {
+			this.correct = (radioBouton === (<ElementRadioBouton>((<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[this.numCard][this.i])).reponse);
+		} else {
+			this.correct = (radioBouton === (<ElementRadioBouton>this.myCarte.listeElements[this.i]).reponse);
+		}
 	}
 
 	boutonTapped() {
@@ -55,22 +69,36 @@ export class ViewRadioBouton implements OnInit {
 			alert.present();
 		}
 		else {
-
-			// on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
-			if (this.i < this.myCarte.listeElements.length - 1) {
-				this.i = this.i + 1;
-				this.navCtrl.push(Utils.getNextPage(this.myCarte, this.i), {
-					resultParam: this.myCarte,
-					index: this.i,
-					correct: this.correct
-				});
+			if (this.myCarte.isDynamic) {
+				if (this.i < (<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[this.numCard].length - 1) {
+					this.i++;
+					this.navCtrl.push(UtilsCards.getNextPage(this.myCarte, this.i, this.numCard), {
+						resultParam: this.myCarte,
+						index: this.i,
+						numCard: this.numCard,
+						correct: this.correct
+					});
+				} else {
+					UtilsCards.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
+					//on retourne à la page d'accueil et on reset l'historique de navigation
+					this.navCtrl.setRoot(ViewHomePage);
+					this.navCtrl.popToRoot();
+				}
 			} else {
-				// Regarde si c'est la première fois qu'on lit une carte et l'ajoute a READ_CARDS si oui
-				// Regarde si on débloque une nouvelle méthode et ajoute si oui
-				Utils.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
-				//on retourne à la page d'accueil et on reset l'historique de navigation
-				this.navCtrl.setRoot(ViewHomePage);
-				this.navCtrl.popToRoot();
+				//on regarde si la liste d'élements de la carte n'a pas été entièrement parcourue
+				if (this.i < this.myCarte.listeElements.length - 1) {
+					this.i = this.i + 1;
+					this.navCtrl.push(UtilsCards.getNextPage(this.myCarte, this.i), {
+						resultParam: this.myCarte,
+						index: this.i,
+						correct: this.correct
+					});
+				} else {
+					UtilsCards.checkCarMet(this.dataProvider, this.toastService, this.myCarte);
+					//on retourne à la page d'accueil et on reset l'historique de navigation
+					this.navCtrl.setRoot(ViewHomePage);
+					this.navCtrl.popToRoot();
+				}
 			}
 		}
 	}
