@@ -4,6 +4,7 @@ import { ViewImageBasicMethode } from './../pages/image-basic/view-image-basic-m
 import { METHODES } from './../data/methodes';
 import {  DataService } from './../../../data-service/data.service';
 import { ToastsService } from './../../toasts-service/toasts.service';
+import { ViewTimer } from '../pages/timer/view-timer.component';
 
 export class Utils {
 
@@ -52,6 +53,8 @@ export class Utils {
 				return ViewBasicMethode;
 			case 'ElementImage':
 				return ViewImageBasicMethode;
+			case 'ElementTimer':
+				return ViewTimer;
 			case 'ElementParent':
 				return ViewBasicMethode;
 		}

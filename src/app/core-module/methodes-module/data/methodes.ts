@@ -1,6 +1,7 @@
 import { Methode } from '../objects/methode';
 import { ElementParent } from '../../objects/element-parent';
 import { ElementImage } from '../../objects/element-image';
+import { ElementTimer } from '../objects/element-timer';
 
 export const METHODES: Methode[] = [
 	{
@@ -14,17 +15,19 @@ export const METHODES: Methode[] = [
 				bouton: 'La suite !',
 				typeElem: 'ElementParent'
 			},
-			<ElementImage>{
+			<ElementTimer>{
 				texte: '25 minutes chrono !',
 				bouton: 'Passer',
 				image: 'assets/imgs/minuteur-pomodoro.jpg',
-				typeElem: 'ElementImage'
+				timer: 1500,
+				typeElem: 'ElementTimer'
 			},
-			<ElementImage>{
+			<ElementTimer>{
 				texte: '15minutes de pause ! Profite en pour : \nTe lever, t\'étirer, ou marcher pendant ces quelques minutes.',
 				bouton: 'C\'est reparti !',
 				image: 'assets/imgs/pause.jpg',
-				typeElem: 'ElementImage'
+				timer: 900,
+				typeElem: 'ElementTimer'
 			}
 		]
 	},
