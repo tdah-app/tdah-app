@@ -18,19 +18,29 @@
   </ion-card>
 
   <ion-card>
-    <ion-card-header>
+    <ion-card-header text-wrap>
       Savais-tu que ?
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content text-wrap>
       <div align="justify">
-        <B>{{myCarte.listeElements[i].sujet}}</B>
-        <FONT color="#00BA00">{{myCarte.listeElements[i].positif}}</FONT>
-        {{texte}} {{valeur_mais}}
-        <FONT color="#FF0000">{{myCarte.listeElements[i].negatif}}</FONT>
-        <br /> {{valeur_conseil}}
-        <I>
-          <FONT color="#383838">{{myCarte.listeElements[i].conseil}}</FONT>
-        </I>
+        <p>
+          <B>{{myCarte.listeElements[i].sujet}}</B>
+        </p>
+        <p>
+          <FONT color="#00BA00">{{myCarte.listeElements[i].positif}}</FONT>
+        </p>
+        <p>
+          <br/> {{texte}} {{valeur_mais}}
+        </p>
+        <p>
+          <FONT color="#FF0000">{{myCarte.listeElements[i].negatif}}</FONT>
+        </p>
+        <p>
+          <br/> {{valeur_conseil}}
+          <I>
+            <FONT color="#383838">{{myCarte.listeElements[i].conseil}}</FONT>
+          </I>
+        </p>
       </div>
     </ion-card-content>
   </ion-card>

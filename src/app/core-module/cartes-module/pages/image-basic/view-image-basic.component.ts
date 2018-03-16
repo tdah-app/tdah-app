@@ -32,10 +32,10 @@ export class ViewImageBasic implements OnInit {
 	ngOnInit() {
 		if (this.myCarte.listeElements.length != 0)
 			this.nomBouton = this.myCarte.listeElements[this.i].bouton;
-		else this.nomBouton = 'Retour au menu';
+		else this.nomBouton = 'Retour au menu'
 
 		// si l'élement de la carte est de type "savais tu que...?", il faut construire un texte d'un certain format. 
-		if (this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue')
+		if (this.myCarte.listeElements[this.i].typeElem == 'ElementSavaisTuQue'){
 			this.texte = (<ElementSavaisTuQue>this.myCarte.listeElements[this.i]).sujet
 				+ ' '
 				+ (<ElementSavaisTuQue>this.myCarte.listeElements[this.i]).positif
@@ -43,6 +43,7 @@ export class ViewImageBasic implements OnInit {
 				+ (<ElementSavaisTuQue>this.myCarte.listeElements[this.i]).negatif
 				+ '.\nConseil : '
 				+ (<ElementSavaisTuQue>this.myCarte.listeElements[this.i]).conseil;
+		}
 		//si le type de l'élement est différent, le texte à afficher est alors l'attribut texte normal.
 		else this.texte = this.myCarte.listeElements[this.i].texte;
 

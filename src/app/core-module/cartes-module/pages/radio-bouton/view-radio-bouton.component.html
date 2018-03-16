@@ -13,17 +13,17 @@
 <ion-content>
   <ion-card>
     <div text-center>
-      <ion-card-header>
+      <ion-card-header text-wrap>
         {{title}}
       </ion-card-header>
     </div>
   </ion-card>
 
   <ion-card>
-    <ion-card-content>
+    <ion-card-content text-wrap>
       {{texte}}
     </ion-card-content>
-    <ion-list radio-group [(ngModel)]="autoManufacturers">
+    <ion-list radio-group [(ngModel)]="autoManufacturers" text-wrap>
       <ion-item *ngFor="let radioBouton of radioBoutons">
         <ion-label>{{radioBouton}}</ion-label>
         <ion-radio value="{{radioBouton}}" (ionSelect)="radioBoutonTapped($event, radioBouton)"></ion-radio>
