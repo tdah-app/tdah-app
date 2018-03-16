@@ -10,9 +10,9 @@ import { UtilsCards } from '../../utils/utils-cards';
 })
 export class ViewDynamic {
 
-  private readonly ON_MOBILE: boolean = false;
+  private readonly ON_MOBILE: boolean = true;
 
-  private textCard: string = "Restez appuyé sur une partie de l'héxagone pour découvrir une carte";
+  private textCard: string = "Balayez une partie de l'héxagone pour découvrir une carte";
   private selectHexa: boolean[] = [false, false, false, false, false, false];
   private myCarte: Carte;
   private i = 0;
@@ -29,7 +29,7 @@ export class ViewDynamic {
         index: 0,
         numCard: num
       });
-    } else {
+    } else if(!this.ON_MOBILE) {
       this.navCtrl.push(UtilsCards.getNextPage(this.myCarte, 0, num), {
         resultParam: this.myCarte,
         index: 0,
@@ -46,7 +46,8 @@ export class ViewDynamic {
         this.selectHexa[k] = false;
       }
     }
-    this.textCard = (<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[num][0].texte.split(" ", 3) +
+    let beginCard: string[] =  (<ElementDynamic>(this.myCarte.listeElements[0])).listeElements[num][0].texte.split(" ", 3)
+    this.textCard = beginCard[0] + " " + beginCard[1] + " " + beginCard[2] + " " + 
       "... \n Cliquez sur la portion pour voir la carte en entier";
   }
 

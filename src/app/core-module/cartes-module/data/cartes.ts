@@ -456,7 +456,7 @@ export const CARTES: Carte[] = [
           ],
           [
             <ElementParent>{
-              texte: 'Thématique 6',
+              texte: 'Thématique 6 test',
               bouton: 'Page 2',
               typeElem: 'ElementParent'
             },
