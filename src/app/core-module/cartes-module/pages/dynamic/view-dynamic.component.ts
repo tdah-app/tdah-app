@@ -10,7 +10,7 @@ import { UtilsCards } from '../../utils/utils-cards';
 })
 export class ViewDynamic {
 
-  private readonly ON_MOBILE: boolean = true;
+  private readonly ON_MOBILE: boolean = false;
 
   private textCard: string = "Balayez une partie de l'héxagone pour découvrir une carte";
   private selectHexa: boolean[] = [false, false, false, false, false, false];
